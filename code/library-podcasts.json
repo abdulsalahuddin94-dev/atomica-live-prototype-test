@@ -1,0 +1,580 @@
+{
+ "screen": "Library - Podcasts",
+ "slug": "library-podcasts",
+ "figma": {
+  "Dark": "27:931",
+  "Light": "31:754"
+ },
+ "label": "Reference code",
+ "order": [
+  "compose",
+  "swiftui",
+  "flutter",
+  "react-native",
+  "web"
+ ],
+ "platforms": {
+  "compose": {
+   "label": "Jetpack Compose",
+   "ext": "kt",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Library - Podcasts by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\n\n@Composable\nfun LibraryPodcastsScreen(navigate: (String) -> Unit) {\n    Column(\n        modifier = Modifier\n            .fillMaxSize()\n            .background(MaterialTheme.colorScheme.surface)\n            .verticalScroll(rememberScrollState()),\n        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n    ) {\n        StatusBar(time = \"5:00\", modifier = Modifier.fillMaxWidth())\n        // Search Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing12),\n        ) {\n            SearchBar(\n                placeholder = \"Search in your library\",\n                iconSearch = AppIcons.Search,\n                iconMic = AppIcons.Mic,\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Library Tabs\n        Column(modifier = Modifier.fillMaxWidth()) {\n            // Tabs Row\n            Row(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(horizontal = AppTheme.spacing.spacing8),\n                verticalAlignment = Alignment.CenterVertically,\n            ) {\n                PrimaryTabs(\n                    firstTab = TabItem(label = \"MUSIC\"),\n                    secondTab = TabItem(selected = true, label = \"PODCASTS\"),\n                    onChange = { index -> when (index) { 0 -> navigate(\"library-music\"); 1 -> navigate(\"library-podcasts\") } },\n                )\n                IconButton(icon = AppIcons.Settings)\n                IconButton(icon = AppIcons.Help)\n            }\n            Divider(modifier = Modifier.fillMaxWidth())\n        }\n        // Filter Chips\n        Row(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing16),\n            horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            FilterChip(selected = true, label = \"Episodes\")\n            FilterChip(label = \"Shows\")\n        }\n        // Shortcut Tiles\n        Row(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing16),\n            horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            LibraryShortcutTile(\n                label = \"Saved\",\n                icon = AppIcons.Bookmark,\n                modifier = Modifier.weight(1f),\n            )\n            LibraryShortcutTile(\n                color = LibraryShortcutTileColor.Cyan,\n                label = \"Downloads\",\n                icon = AppIcons.CloudDownload,\n                modifier = Modifier.weight(1f),\n            )\n            LibraryShortcutTile(\n                color = LibraryShortcutTileColor.Magenta,\n                label = \"Your New Podcasts\",\n                icon = AppIcons.Podcasts,\n                modifier = Modifier.weight(1f),\n            )\n        }\n        // Continue Playing Header\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            SectionHeader(\n                title = \"Continue playing\",\n                showMore = false,\n                showSupportingText = false,\n                supportingText = \"Discover music based on your recent activity\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Episodes\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n        ) {\n            PodcastEpisodeCard(\n                description = \"In this episode we talk the Brit awards, Zayn's new It's You music video, and our current feelings about the band\",\n                timeLeft = \"1h 42min left\",\n                showDownload = true,\n                progressIndicator = ProgressIndicator(value = ProgressIndicatorValue.V10),\n                image = painterResource(R.drawable.img_i_27_1018_10_397),\n                title = \"Harry Potter and the One Direction - Episode 37 - It's You\",\n                subtitle = \"Talk Direction: The 1D (& Harry Styles) Podcast\",\n                titleLines = 2,\n                hideActiveTrack = true,\n                modifier = Modifier.fillMaxWidth(),\n            )\n            PodcastEpisodeCard(\n                description = \"Thank you for listening!! See Privacy Policy at https://art19.com/privacy and California Privacy Notice\",\n                timeLeft = \"1h 2min left\",\n                showDownload = false,\n                progressIndicator = ProgressIndicator(value = ProgressIndicatorValue.V10),\n                image = painterResource(R.drawable.img_i_27_1050_10_397),\n                title = \"Broccoli Guts Pt. 2 | PITM #149\",\n                subtitle = \"PitM\",\n                titleLines = 2,\n                hideActiveTrack = true,\n                modifier = Modifier.fillMaxWidth(),\n            )\n            PodcastEpisodeCard(\n                description = \"We are GHR - America's Dance Music Mixshow! This weeks GHR is major! We are \\\"LIVE\\\" from COACHELLA\",\n                timeLeft = \"56min left\",\n                showDownload = true,\n                progressIndicator = ProgressIndicator(value = ProgressIndicatorValue.V40),\n                image = painterResource(R.drawable.img_i_27_1072_10_397),\n                title = \"GHR - Show 426 - LIVE from Coachella 2015 - Hour 2\",\n                subtitle = \"Ghetto House Radio\",\n                titleLines = 2,\n                hideActiveTrack = true,\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        BottomNavigation(\n            firstItem = NavigationItem(label = \"Explore\", icon = AppIcons.Explore),\n            secondItem = NavigationItem(label = \"Search\", icon = AppIcons.Search),\n            thirdItem = NavigationItem(label = \"Connect\", icon = AppIcons.Groups),\n            fourthItem = NavigationItem(\n                selected = true,\n                label = \"Your Library\",\n                icon = AppIcons.LibraryMusic,\n            ),\n            onChange = { index -> when (index) { 0 -> navigate(\"explore-viewport\"); 1 -> navigate(\"search-discover-viewport\"); 3 -> navigate(\"library-music\") } },\n        )\n        MiniPlayer(\n            image = painterResource(R.drawable.img_i_27_1132_10_451),\n            title = \"لو كنت غالى\",\n            subtitle = \"مصطفى قمر\",\n            onOpen = { navigate(\"now-playing\") },\n        )\n    }\n}\n",
+   "ranges": {
+    "27:932": [
+     19,
+     19
+    ],
+    "27:942": [
+     26,
+     31
+    ],
+    "27:941": [
+     20,
+     32
+    ],
+    "27:952": [
+     42,
+     46
+    ],
+    "27:964": [
+     47,
+     46
+    ],
+    "27:965": [
+     47,
+     47
+    ],
+    "27:969": [
+     48,
+     48
+    ],
+    "27:951": [
+     35,
+     49
+    ],
+    "27:973": [
+     50,
+     50
+    ],
+    "27:950": [
+     33,
+     51
+    ],
+    "27:979": [
+     59,
+     59
+    ],
+    "27:982": [
+     60,
+     60
+    ],
+    "27:978": [
+     52,
+     61
+    ],
+    "27:986": [
+     69,
+     73
+    ],
+    "27:992": [
+     74,
+     79
+    ],
+    "27:998": [
+     80,
+     85
+    ],
+    "27:985": [
+     62,
+     86
+    ],
+    "27:1005": [
+     94,
+     100
+    ],
+    "27:1004": [
+     87,
+     101
+    ],
+    "27:1018": [
+     109,
+     120
+    ],
+    "27:1050": [
+     121,
+     132
+    ],
+    "27:1072": [
+     133,
+     144
+    ],
+    "27:1017": [
+     102,
+     145
+    ],
+    "27:1094": [
+     146,
+     156
+    ],
+    "27:1132": [
+     157,
+     162
+    ],
+    "27:931": [
+     12,
+     163
+    ]
+   }
+  },
+  "swiftui": {
+   "label": "SwiftUI",
+   "ext": "swift",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Library - Podcasts by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct LibraryPodcastsScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .leading, spacing: DS.Spacing.spacing16) {\n                StatusBar(time: \"5:00\")\n                    .frame(maxWidth: .infinity)\n                // Search Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    SearchBar(\n                        placeholder: \"Search in your library\",\n                        iconSearch: DS.Icons.search,\n                        iconMic: DS.Icons.mic,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing12)\n                .frame(maxWidth: .infinity)\n                // Library Tabs\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    // Tabs Row\n                    HStack(alignment: .center, spacing: DS.Spacing.spacing0) {\n                        PrimaryTabs(\n                            firstTab: TabItem(label: \"MUSIC\"),\n                            secondTab: TabItem(selected: true, label: \"PODCASTS\"),\n                            onChange: { index in switch index { case 0: navigate(\"library-music\"); case 1: navigate(\"library-podcasts\"); default: break } },\n                        )\n                        IconButton(icon: DS.Icons.settings)\n                        IconButton(icon: DS.Icons.help)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing8)\n                    .frame(maxWidth: .infinity)\n                    Divider()\n                        .frame(maxWidth: .infinity)\n                }\n                .frame(maxWidth: .infinity)\n                // Filter Chips\n                HStack(alignment: .top, spacing: DS.Spacing.spacing8) {\n                    FilterChip(selected: true, label: \"Episodes\")\n                    FilterChip(label: \"Shows\")\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Shortcut Tiles\n                HStack(alignment: .top, spacing: DS.Spacing.spacing8) {\n                    LibraryShortcutTile(label: \"Saved\", icon: DS.Icons.bookmark)\n                        .frame(maxWidth: .infinity)\n                    LibraryShortcutTile(\n                        color: .cyan,\n                        label: \"Downloads\",\n                        icon: DS.Icons.cloudDownload,\n                    )\n                        .frame(maxWidth: .infinity)\n                    LibraryShortcutTile(\n                        color: .magenta,\n                        label: \"Your New Podcasts\",\n                        icon: DS.Icons.podcasts,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Continue Playing Header\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SectionHeader(\n                        title: \"Continue playing\",\n                        showMore: false,\n                        showSupportingText: false,\n                        supportingText: \"Discover music based on your recent activity\",\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Episodes\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing16) {\n                    PodcastEpisodeCard(\n                        description: \"In this episode we talk the Brit awards, Zayn's new It's You music video, and our current feelings about the band\",\n                        timeLeft: \"1h 42min left\",\n                        showDownload: true,\n                        progressIndicator: ProgressIndicator(value: .v10),\n                        image: Image(\"I27-1018-10-397\"),\n                        title: \"Harry Potter and the One Direction - Episode 37 - It's You\",\n                        subtitle: \"Talk Direction: The 1D (& Harry Styles) Podcast\",\n                        titleLines: 2,\n                        hideActiveTrack: true,\n                    )\n                        .frame(maxWidth: .infinity)\n                    PodcastEpisodeCard(\n                        description: \"Thank you for listening!! See Privacy Policy at https://art19.com/privacy and California Privacy Notice\",\n                        timeLeft: \"1h 2min left\",\n                        showDownload: false,\n                        progressIndicator: ProgressIndicator(value: .v10),\n                        image: Image(\"I27-1050-10-397\"),\n                        title: \"Broccoli Guts Pt. 2 | PITM #149\",\n                        subtitle: \"PitM\",\n                        titleLines: 2,\n                        hideActiveTrack: true,\n                    )\n                        .frame(maxWidth: .infinity)\n                    PodcastEpisodeCard(\n                        description: \"We are GHR - America's Dance Music Mixshow! This weeks GHR is major! We are \\\"LIVE\\\" from COACHELLA\",\n                        timeLeft: \"56min left\",\n                        showDownload: true,\n                        progressIndicator: ProgressIndicator(value: .v40),\n                        image: Image(\"I27-1072-10-397\"),\n                        title: \"GHR - Show 426 - LIVE from Coachella 2015 - Hour 2\",\n                        subtitle: \"Ghetto House Radio\",\n                        titleLines: 2,\n                        hideActiveTrack: true,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                BottomNavigation(\n                    firstItem: NavigationItem(label: \"Explore\", icon: DS.Icons.explore),\n                    secondItem: NavigationItem(label: \"Search\", icon: DS.Icons.search),\n                    thirdItem: NavigationItem(label: \"Connect\", icon: DS.Icons.groups),\n                    fourthItem: NavigationItem(\n                        selected: true,\n                        label: \"Your Library\",\n                        icon: DS.Icons.libraryMusic,\n                    ),\n                    onChange: { index in switch index { case 0: navigate(\"explore-viewport\"); case 1: navigate(\"search-discover-viewport\"); case 3: navigate(\"library-music\"); default: break } },\n                )\n                MiniPlayer(\n                    image: Image(\"I27-1132-10-451\"),\n                    title: \"لو كنت غالى\",\n                    subtitle: \"مصطفى قمر\",\n                    onOpen: { navigate(\"now-playing\") },\n                )\n            }\n        }\n        .background(DS.Colors.surface)\n    }\n}\n",
+   "ranges": {
+    "27:932": [
+     12,
+     13
+    ],
+    "27:942": [
+     16,
+     21
+    ],
+    "27:941": [
+     14,
+     24
+    ],
+    "27:952": [
+     29,
+     33
+    ],
+    "27:964": [
+     34,
+     33
+    ],
+    "27:965": [
+     34,
+     34
+    ],
+    "27:969": [
+     35,
+     35
+    ],
+    "27:951": [
+     27,
+     38
+    ],
+    "27:973": [
+     39,
+     40
+    ],
+    "27:950": [
+     25,
+     42
+    ],
+    "27:979": [
+     45,
+     45
+    ],
+    "27:982": [
+     46,
+     46
+    ],
+    "27:978": [
+     43,
+     49
+    ],
+    "27:986": [
+     52,
+     53
+    ],
+    "27:992": [
+     54,
+     59
+    ],
+    "27:998": [
+     60,
+     65
+    ],
+    "27:985": [
+     50,
+     68
+    ],
+    "27:1005": [
+     71,
+     77
+    ],
+    "27:1004": [
+     69,
+     80
+    ],
+    "27:1018": [
+     83,
+     94
+    ],
+    "27:1050": [
+     95,
+     106
+    ],
+    "27:1072": [
+     107,
+     118
+    ],
+    "27:1017": [
+     81,
+     121
+    ],
+    "27:1094": [
+     122,
+     132
+    ],
+    "27:1132": [
+     133,
+     138
+    ],
+    "27:931": [
+     10,
+     141
+    ]
+   }
+  },
+  "flutter": {
+   "label": "Flutter",
+   "ext": "dart",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Library - Podcasts by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\n\nclass LibraryPodcastsScreen extends StatelessWidget {\n  const LibraryPodcastsScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return ColoredBox(color: Theme.of(context).colorScheme.surface,\n      child: SingleChildScrollView(\n        child: Column(\n          spacing: AppSpacing.spacing16,\n          crossAxisAlignment: CrossAxisAlignment.start,\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '5:00')),\n            // Search Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing12),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SearchBar(\n                      placeholder: 'Search in your library',\n                      iconSearch: AppIcons.search,\n                      iconMic: AppIcons.mic,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Library Tabs\n            SizedBox(width: double.infinity,\n              child: Column(\n                crossAxisAlignment: CrossAxisAlignment.start,\n                children: [\n                  // Tabs Row\n                  SizedBox(width: double.infinity,\n                    child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing8),\n                      child: Row(\n                        children: [\n                          PrimaryTabs(\n                            firstTab: TabItem(label: 'MUSIC'),\n                            secondTab: TabItem(selected: true, label: 'PODCASTS'),\n                            onChange: (index) { switch (index) { case 0: navigate('library-music'); case 1: navigate('library-podcasts'); } },\n                          ),\n                          IconButton(icon: AppIcons.settings),\n                          IconButton(icon: AppIcons.help),\n                        ],\n                      ),\n                    ),\n                  ),\n                  SizedBox(width: double.infinity, child: Divider()),\n                ],\n              ),\n            ),\n            // Filter Chips\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Row(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    FilterChip(selected: true, label: 'Episodes'),\n                    FilterChip(label: 'Shows'),\n                  ],\n                ),\n              ),\n            ),\n            // Shortcut Tiles\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Row(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    Expanded(child: LibraryShortcutTile(label: 'Saved', icon: AppIcons.bookmark)),\n                    Expanded(child: LibraryShortcutTile(\n                      color: LibraryShortcutTileColor.cyan,\n                      label: 'Downloads',\n                      icon: AppIcons.cloudDownload,\n                    )),\n                    Expanded(child: LibraryShortcutTile(\n                      color: LibraryShortcutTileColor.magenta,\n                      label: 'Your New Podcasts',\n                      icon: AppIcons.podcasts,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Continue Playing Header\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SectionHeader(\n                      title: 'Continue playing',\n                      showMore: false,\n                      showSupportingText: false,\n                      supportingText: 'Discover music based on your recent activity',\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Episodes\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing16,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: PodcastEpisodeCard(\n                      description: 'In this episode we talk the Brit awards, Zayn\\'s new It\\'s You music video, and our current feelings about the band',\n                      timeLeft: '1h 42min left',\n                      showDownload: true,\n                      progressIndicator: ProgressIndicator(value: ProgressIndicatorValue.v10),\n                      image: const AssetImage('assets/figma-img/I27-1018-10-397.png'),\n                      title: 'Harry Potter and the One Direction - Episode 37 - It\\'s You',\n                      subtitle: 'Talk Direction: The 1D (& Harry Styles) Podcast',\n                      titleLines: 2,\n                      hideActiveTrack: true,\n                    )),\n                    SizedBox(width: double.infinity, child: PodcastEpisodeCard(\n                      description: 'Thank you for listening!! See Privacy Policy at https://art19.com/privacy and California Privacy Notice',\n                      timeLeft: '1h 2min left',\n                      showDownload: false,\n                      progressIndicator: ProgressIndicator(value: ProgressIndicatorValue.v10),\n                      image: const AssetImage('assets/figma-img/I27-1050-10-397.png'),\n                      title: 'Broccoli Guts Pt. 2 | PITM #149',\n                      subtitle: 'PitM',\n                      titleLines: 2,\n                      hideActiveTrack: true,\n                    )),\n                    SizedBox(width: double.infinity, child: PodcastEpisodeCard(\n                      description: 'We are GHR - America\\'s Dance Music Mixshow! This weeks GHR is major! We are \"LIVE\" from COACHELLA',\n                      timeLeft: '56min left',\n                      showDownload: true,\n                      progressIndicator: ProgressIndicator(value: ProgressIndicatorValue.v40),\n                      image: const AssetImage('assets/figma-img/I27-1072-10-397.png'),\n                      title: 'GHR - Show 426 - LIVE from Coachella 2015 - Hour 2',\n                      subtitle: 'Ghetto House Radio',\n                      titleLines: 2,\n                      hideActiveTrack: true,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            BottomNavigation(\n              firstItem: NavigationItem(label: 'Explore', icon: AppIcons.explore),\n              secondItem: NavigationItem(label: 'Search', icon: AppIcons.search),\n              thirdItem: NavigationItem(label: 'Connect', icon: AppIcons.groups),\n              fourthItem: NavigationItem(selected: true, label: 'Your Library', icon: AppIcons.libraryMusic),\n              onChange: (index) { switch (index) { case 0: navigate('explore-viewport'); case 1: navigate('search-discover-viewport'); case 3: navigate('library-music'); } },\n            ),\n            MiniPlayer(\n              image: const AssetImage('assets/figma-img/I27-1132-10-451.png'),\n              title: 'لو كنت غالى',\n              subtitle: 'مصطفى قمر',\n              onOpen: () => navigate('now-playing'),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
+   "ranges": {
+    "27:932": [
+     20,
+     20
+    ],
+    "27:942": [
+     27,
+     31
+    ],
+    "27:941": [
+     21,
+     35
+    ],
+    "27:952": [
+     46,
+     50
+    ],
+    "27:964": [
+     51,
+     50
+    ],
+    "27:965": [
+     51,
+     51
+    ],
+    "27:969": [
+     52,
+     52
+    ],
+    "27:951": [
+     41,
+     56
+    ],
+    "27:973": [
+     57,
+     57
+    ],
+    "27:950": [
+     36,
+     60
+    ],
+    "27:979": [
+     68,
+     68
+    ],
+    "27:982": [
+     69,
+     69
+    ],
+    "27:978": [
+     61,
+     73
+    ],
+    "27:986": [
+     81,
+     81
+    ],
+    "27:992": [
+     82,
+     86
+    ],
+    "27:998": [
+     87,
+     91
+    ],
+    "27:985": [
+     74,
+     95
+    ],
+    "27:1005": [
+     103,
+     108
+    ],
+    "27:1004": [
+     96,
+     112
+    ],
+    "27:1018": [
+     120,
+     130
+    ],
+    "27:1050": [
+     131,
+     141
+    ],
+    "27:1072": [
+     142,
+     152
+    ],
+    "27:1017": [
+     113,
+     156
+    ],
+    "27:1094": [
+     157,
+     163
+    ],
+    "27:1132": [
+     164,
+     169
+    ],
+    "27:931": [
+     13,
+     173
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Library - Podcasts by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { BottomNavigation, Divider, FilterChip, IconButton, LibraryShortcutTile, MiniPlayer, NavigationItem, PodcastEpisodeCard, PrimaryTabs, ProgressIndicator, SearchBar, SectionHeader, StatusBar, TabItem } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\n\nexport function LibraryPodcastsScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <ScrollView style={{ backgroundColor: tokens.color.surface }} contentContainerStyle={{ gap: tokens.spacing.spacing16 }}>\n      <StatusBar time=\"5:00\" />\n      {/* Search Section */}\n      <View style={{ paddingHorizontal: tokens.spacing.spacing12 }}>\n        <SearchBar placeholder=\"Search in your library\" iconSearch=\"search\" iconMic=\"mic\" />\n      </View>\n      {/* Library Tabs */}\n      <View style={{  }}>\n        {/* Tabs Row */}\n        <View\n          style={{\n            flexDirection: 'row',\n            alignItems: 'center',\n            paddingHorizontal: tokens.spacing.spacing8,\n          }}\n        >\n          <PrimaryTabs\n            firstTab={<TabItem label=\"MUSIC\" />}\n            secondTab={<TabItem selected label=\"PODCASTS\" />}\n            onChange={(index) => navigate({ 0: 'library-music', 1: 'library-podcasts' }[index])}\n          />\n          <IconButton icon=\"settings\" />\n          <IconButton icon=\"help\" />\n        </View>\n        <Divider />\n      </View>\n      {/* Filter Chips */}\n      <View\n        style={{\n          flexDirection: 'row',\n          gap: tokens.spacing.spacing8,\n          alignItems: 'flex-start',\n          paddingHorizontal: tokens.spacing.spacing16,\n        }}\n      >\n        <FilterChip selected label=\"Episodes\" />\n        <FilterChip label=\"Shows\" />\n      </View>\n      {/* Shortcut Tiles */}\n      <View\n        style={{\n          flexDirection: 'row',\n          gap: tokens.spacing.spacing8,\n          alignItems: 'flex-start',\n          paddingHorizontal: tokens.spacing.spacing16,\n        }}\n      >\n        <LibraryShortcutTile label=\"Saved\" icon=\"bookmark\" style={{ flex: 1 }} />\n        <LibraryShortcutTile\n          color=\"cyan\"\n          label=\"Downloads\"\n          icon=\"cloud_download\"\n          style={{ flex: 1 }}\n        />\n        <LibraryShortcutTile\n          color=\"magenta\"\n          label=\"Your New Podcasts\"\n          icon=\"podcasts\"\n          style={{ flex: 1 }}\n        />\n      </View>\n      {/* Continue Playing Header */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing8,\n          paddingHorizontal: tokens.spacing.spacing16,\n        }}\n      >\n        <SectionHeader\n          title=\"Continue playing\"\n          showMore={false}\n          showSupportingText={false}\n          supportingText=\"Discover music based on your recent activity\"\n        />\n      </View>\n      {/* Episodes */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing16,\n          paddingHorizontal: tokens.spacing.spacing16,\n        }}\n      >\n        <PodcastEpisodeCard\n          description=\"In this episode we talk the Brit awards, Zayn's new It's You music video, and our current feelings about the band\"\n          timeLeft=\"1h 42min left\"\n          showDownload\n          progressIndicator={<ProgressIndicator value=\"v10\" />}\n          image={require('./assets/figma-img/I27-1018-10-397.png')}\n          title=\"Harry Potter and the One Direction - Episode 37 - It's You\"\n          subtitle=\"Talk Direction: The 1D (& Harry Styles) Podcast\"\n          titleLines={2}\n          hideActiveTrack\n        />\n        <PodcastEpisodeCard\n          description=\"Thank you for listening!! See Privacy Policy at https://art19.com/privacy and California Privacy Notice\"\n          timeLeft=\"1h 2min left\"\n          showDownload={false}\n          progressIndicator={<ProgressIndicator value=\"v10\" />}\n          image={require('./assets/figma-img/I27-1050-10-397.png')}\n          title=\"Broccoli Guts Pt. 2 | PITM #149\"\n          subtitle=\"PitM\"\n          titleLines={2}\n          hideActiveTrack\n        />\n        <PodcastEpisodeCard\n          description={'We are GHR - America\\'s Dance Music Mixshow! This weeks GHR is major! We are \"LIVE\" from COACHELLA'}\n          timeLeft=\"56min left\"\n          showDownload\n          progressIndicator={<ProgressIndicator value=\"v40\" />}\n          image={require('./assets/figma-img/I27-1072-10-397.png')}\n          title=\"GHR - Show 426 - LIVE from Coachella 2015 - Hour 2\"\n          subtitle=\"Ghetto House Radio\"\n          titleLines={2}\n          hideActiveTrack\n        />\n      </View>\n      <BottomNavigation\n        firstItem={<NavigationItem label=\"Explore\" icon=\"explore\" />}\n        secondItem={<NavigationItem label=\"Search\" icon=\"search\" />}\n        thirdItem={<NavigationItem label=\"Connect\" icon=\"groups\" />}\n        fourthItem={<NavigationItem selected label=\"Your Library\" icon=\"library_music\" />}\n        onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n        style={{ alignSelf: 'flex-start' }}\n      />\n      <MiniPlayer\n        image={require('./assets/figma-img/I27-1132-10-451.png')}\n        title=\"لو كنت غالى\"\n        subtitle=\"مصطفى قمر\"\n        onOpen={() => navigate('now-playing')}\n        style={{ alignSelf: 'flex-start' }}\n      />\n    </ScrollView>\n  );\n}\n",
+   "ranges": {
+    "27:932": [
+     12,
+     12
+    ],
+    "27:942": [
+     15,
+     15
+    ],
+    "27:941": [
+     13,
+     16
+    ],
+    "27:952": [
+     27,
+     31
+    ],
+    "27:964": [
+     32,
+     31
+    ],
+    "27:965": [
+     32,
+     32
+    ],
+    "27:969": [
+     33,
+     33
+    ],
+    "27:951": [
+     19,
+     34
+    ],
+    "27:973": [
+     35,
+     35
+    ],
+    "27:950": [
+     17,
+     36
+    ],
+    "27:979": [
+     46,
+     46
+    ],
+    "27:982": [
+     47,
+     47
+    ],
+    "27:978": [
+     37,
+     48
+    ],
+    "27:986": [
+     58,
+     58
+    ],
+    "27:992": [
+     59,
+     64
+    ],
+    "27:998": [
+     65,
+     70
+    ],
+    "27:985": [
+     49,
+     71
+    ],
+    "27:1005": [
+     79,
+     84
+    ],
+    "27:1004": [
+     72,
+     85
+    ],
+    "27:1018": [
+     93,
+     103
+    ],
+    "27:1050": [
+     104,
+     114
+    ],
+    "27:1072": [
+     115,
+     125
+    ],
+    "27:1017": [
+     86,
+     126
+    ],
+    "27:1094": [
+     127,
+     134
+    ],
+    "27:1132": [
+     135,
+     141
+    ],
+    "27:931": [
+     11,
+     142
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Library - Podcasts by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { Divider, LibraryShortcutTile, PodcastEpisodeCard, SectionHeader, StatusBar } from '@ds/components/DataDisplay';\nimport { ProgressIndicator } from '@ds/components/DataDisplayAtoms';\nimport { SearchBar } from '@ds/components/FormElements';\nimport { BottomNavigation, FilterChip, IconButton, MiniPlayer, NavigationItem, PrimaryTabs, TabItem } from '@ds/components/Navigation';\n\nexport function LibraryPodcastsScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div\n      style={{\n        display: 'flex',\n        flexDirection: 'column',\n        gap: 'var(--md-sys-spacing-16)',\n        alignItems: 'stretch',\n        background: 'var(--md-sys-color-surface)',\n        overflowY: 'auto',\n      }}\n    >\n      <StatusBar Time=\"5:00\" />\n      {/* Search Section */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-12)',\n        }}\n      >\n        <SearchBar\n          Placeholder=\"Search in your library\"\n          {...{ 'Icon search': 'search', 'Icon mic': 'mic' }}\n        />\n      </div>\n      {/* Library Tabs */}\n      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>\n        {/* Tabs Row */}\n        <div\n          style={{\n            display: 'flex',\n            flexDirection: 'row',\n            alignItems: 'center',\n            paddingInline: 'var(--md-sys-spacing-8)',\n          }}\n        >\n          <PrimaryTabs\n            onChange={(index) => navigate({ 0: 'library-music', 1: 'library-podcasts' }[index])}\n            {...{ 'First Tab': <TabItem Label=\"MUSIC\" />, 'Second Tab': <TabItem Selected Label=\"PODCASTS\" /> }}\n          />\n          <IconButton Icon=\"settings\" />\n          <IconButton Icon=\"help\" />\n        </div>\n        <Divider />\n      </div>\n      {/* Filter Chips */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'row',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'flex-start',\n          paddingInline: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <FilterChip Selected Label=\"Episodes\" />\n        <FilterChip Label=\"Shows\" />\n      </div>\n      {/* Shortcut Tiles */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'row',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'flex-start',\n          paddingInline: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <div style={{ flex: 1 }}>\n          <LibraryShortcutTile Label=\"Saved\" Icon=\"bookmark\" />\n        </div>\n        <div style={{ flex: 1 }}>\n          <LibraryShortcutTile Color=\"Cyan\" Label=\"Downloads\" Icon=\"cloud_download\" />\n        </div>\n        <div style={{ flex: 1 }}>\n          <LibraryShortcutTile Color=\"Magenta\" Label=\"Your New Podcasts\" Icon=\"podcasts\" />\n        </div>\n      </div>\n      {/* Continue Playing Header */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <SectionHeader\n          Title=\"Continue playing\"\n          {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': 'Discover music based on your recent activity' }}\n        />\n      </div>\n      {/* Episodes */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-16)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <PodcastEpisodeCard\n          Description=\"In this episode we talk the Brit awards, Zayn's new It's You music video, and our current feelings about the band\"\n          image=\"figma-img/I27-1018-10-397.png\"\n          title=\"Harry Potter and the One Direction - Episode 37 - It's You\"\n          subtitle=\"Talk Direction: The 1D (& Harry Styles) Podcast\"\n          titleLines={2}\n          hideActiveTrack\n          {...{ 'Time Left': '1h 42min left', 'Show Download': true, 'Progress Indicator': <ProgressIndicator Value=\"10\" /> }}\n        />\n        <PodcastEpisodeCard\n          Description=\"Thank you for listening!! See Privacy Policy at https://art19.com/privacy and California Privacy Notice\"\n          image=\"figma-img/I27-1050-10-397.png\"\n          title=\"Broccoli Guts Pt. 2 | PITM #149\"\n          subtitle=\"PitM\"\n          titleLines={2}\n          hideActiveTrack\n          {...{ 'Time Left': '1h 2min left', 'Show Download': false, 'Progress Indicator': <ProgressIndicator Value=\"10\" /> }}\n        />\n        <PodcastEpisodeCard\n          Description={'We are GHR - America\\'s Dance Music Mixshow! This weeks GHR is major! We are \"LIVE\" from COACHELLA'}\n          image=\"figma-img/I27-1072-10-397.png\"\n          title=\"GHR - Show 426 - LIVE from Coachella 2015 - Hour 2\"\n          subtitle=\"Ghetto House Radio\"\n          titleLines={2}\n          hideActiveTrack\n          {...{ 'Time Left': '56min left', 'Show Download': true, 'Progress Indicator': <ProgressIndicator Value=\"40\" /> }}\n        />\n      </div>\n      <div style={{ alignSelf: 'flex-start' }}>\n        <BottomNavigation\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n          {...{ 'First Item': <NavigationItem Label=\"Explore\" Icon=\"explore\" />, 'Second Item': <NavigationItem Label=\"Search\" Icon=\"search\" />, 'Third Item': <NavigationItem Label=\"Connect\" Icon=\"groups\" />, 'Fourth Item': <NavigationItem Selected Label=\"Your Library\" Icon=\"library_music\" /> }}\n        />\n      </div>\n      <div style={{ alignSelf: 'flex-start' }}>\n        <MiniPlayer\n          image=\"figma-img/I27-1132-10-451.png\"\n          title=\"لو كنت غالى\"\n          subtitle=\"مصطفى قمر\"\n          onOpen={() => navigate('now-playing')}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "27:932": [
+     22,
+     22
+    ],
+    "27:942": [
+     32,
+     35
+    ],
+    "27:941": [
+     23,
+     36
+    ],
+    "27:952": [
+     48,
+     51
+    ],
+    "27:964": [
+     52,
+     51
+    ],
+    "27:965": [
+     52,
+     52
+    ],
+    "27:969": [
+     53,
+     53
+    ],
+    "27:951": [
+     39,
+     54
+    ],
+    "27:973": [
+     55,
+     55
+    ],
+    "27:950": [
+     37,
+     56
+    ],
+    "27:979": [
+     67,
+     67
+    ],
+    "27:982": [
+     68,
+     68
+    ],
+    "27:978": [
+     57,
+     69
+    ],
+    "27:986": [
+     80,
+     82
+    ],
+    "27:992": [
+     83,
+     85
+    ],
+    "27:998": [
+     86,
+     88
+    ],
+    "27:985": [
+     70,
+     89
+    ],
+    "27:1005": [
+     100,
+     103
+    ],
+    "27:1004": [
+     90,
+     104
+    ],
+    "27:1018": [
+     115,
+     123
+    ],
+    "27:1050": [
+     124,
+     132
+    ],
+    "27:1072": [
+     133,
+     141
+    ],
+    "27:1017": [
+     105,
+     142
+    ],
+    "27:1094": [
+     143,
+     148
+    ],
+    "27:1132": [
+     149,
+     156
+    ],
+    "27:931": [
+     12,
+     157
+    ]
+   }
+  }
+ },
+ "alias_root": {
+  "31:754": "27:931"
+ },
+ "check": {
+  "unknown": 0,
+  "raw": 0
+ }
+}

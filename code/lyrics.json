@@ -1,0 +1,440 @@
+{
+ "screen": "Lyrics",
+ "slug": "lyrics",
+ "figma": {
+  "Dark": "56:5281",
+  "Light": "56:5418"
+ },
+ "label": "Reference code",
+ "order": [
+  "compose",
+  "swiftui",
+  "flutter",
+  "react-native",
+  "web"
+ ],
+ "platforms": {
+  "compose": {
+   "label": "Jetpack Compose",
+   "ext": "kt",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Lyrics by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\n\n@Composable\nfun LyricsScreen(navigate: (String) -> Unit) {\n    Column(\n        modifier = Modifier\n            .fillMaxSize()\n            .background(MaterialTheme.colorScheme.surfaceContainerHigh)\n            .verticalScroll(rememberScrollState()),\n        horizontalAlignment = Alignment.CenterHorizontally,\n    ) {\n        StatusBar(time = \"12:00\", modifier = Modifier.fillMaxWidth())\n        // Collapse Row\n        Row(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing8),\n        ) {\n            IconButton(icon = AppIcons.ExpandMore)\n        }\n        // Lyrics Header Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, end = AppTheme.spacing.spacing16, bottom = AppTheme.spacing.spacing8),\n        ) {\n            LyricsHeader(\n                image = painterResource(R.drawable.img_i_56_5361_62_3653),\n                title = \"كيفك ع فراقى\",\n                subtitle = \"محمد شاكر وفضل شاكر - كيفك ع فراقى\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Lyrics Section\n        Column(\n            modifier = Modifier\n                .weight(1f)\n                .fillMaxWidth()\n                .padding(horizontal = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing24),\n        ) {\n            LyricsLine(\n                align = LyricsLineAlign.End,\n                line = \"كذبه وصدقتا\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Current,\n                align = LyricsLineAlign.End,\n                line = \"كانت أكبر كذبه عشته\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Upcoming,\n                align = LyricsLineAlign.End,\n                line = \"إنى انساك ومن وقته\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Upcoming,\n                align = LyricsLineAlign.End,\n                line = \"ما اقدرت نسيت\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Upcoming,\n                align = LyricsLineAlign.End,\n                line = \"عم عائد ماضى\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Upcoming,\n                align = LyricsLineAlign.End,\n                line = \"بضحك وبقول عادى عادى\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n            LyricsLine(\n                state = LyricsLineState.Upcoming,\n                align = LyricsLineAlign.End,\n                line = \"والميه كله ع الفاضى\",\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Progress Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing12, end = AppTheme.spacing.spacing16),\n        ) {\n            PlaybackProgress(\n                elapsedTime = \"00:29\",\n                totalTime = \"03:48\",\n                progressIndicator = ProgressIndicator(value = ProgressIndicatorValue.V10),\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Controls Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing8, end = AppTheme.spacing.spacing16, bottom = AppTheme.spacing.spacing16),\n        ) {\n            PlaybackControls(modifier = Modifier.fillMaxWidth())\n        }\n        PlayerUtilityBar(\n            active = PlayerUtilityBarActive.Lyrics,\n            lyricsLabel = \"LYRICS\",\n            queueLabel = \"QUEUE\",\n            audioLabel = \"AUDIO\",\n            iconLyrics = AppIcons.Lyrics,\n            iconQueueMusic = AppIcons.QueueMusic,\n            iconGraphicEq = AppIcons.Settings,\n            onChange = { index -> when (index) { \"Lyrics\" -> navigate(\"lyrics\"); \"None\" -> navigate(\"now-playing\") } },\n            modifier = Modifier.fillMaxWidth(),\n        )\n    }\n}\n",
+   "ranges": {
+    "56:5282": [
+     19,
+     19
+    ],
+    "56:5356": [
+     26,
+     26
+    ],
+    "56:5355": [
+     20,
+     27
+    ],
+    "56:5361": [
+     34,
+     39
+    ],
+    "56:5360": [
+     28,
+     40
+    ],
+    "56:5389": [
+     49,
+     53
+    ],
+    "56:5391": [
+     54,
+     59
+    ],
+    "56:5393": [
+     60,
+     65
+    ],
+    "56:5395": [
+     66,
+     71
+    ],
+    "56:5397": [
+     72,
+     77
+    ],
+    "56:5399": [
+     78,
+     83
+    ],
+    "56:5401": [
+     84,
+     89
+    ],
+    "56:5375": [
+     41,
+     90
+    ],
+    "56:5291": [
+     97,
+     102
+    ],
+    "56:5290": [
+     91,
+     103
+    ],
+    "56:5293": [
+     110,
+     110
+    ],
+    "56:5292": [
+     104,
+     111
+    ],
+    "56:5294": [
+     112,
+     122
+    ],
+    "56:5281": [
+     12,
+     123
+    ]
+   }
+  },
+  "swiftui": {
+   "label": "SwiftUI",
+   "ext": "swift",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Lyrics by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct LyricsScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .center, spacing: DS.Spacing.spacing0) {\n                StatusBar(time: \"12:00\")\n                    .frame(maxWidth: .infinity)\n                // Collapse Row\n                HStack(alignment: .top, spacing: DS.Spacing.spacing0) {\n                    IconButton(icon: DS.Icons.expandMore)\n                }\n                .padding(.horizontal, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Lyrics Header Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    LyricsHeader(\n                        image: Image(\"I56-5361-62-3653\"),\n                        title: \"كيفك ع فراقى\",\n                        subtitle: \"محمد شاكر وفضل شاكر - كيفك ع فراقى\",\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.bottom, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Lyrics Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing24) {\n                    LyricsLine(align: .end, line: \"كذبه وصدقتا\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .current, align: .end, line: \"كانت أكبر كذبه عشته\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .upcoming, align: .end, line: \"إنى انساك ومن وقته\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .upcoming, align: .end, line: \"ما اقدرت نسيت\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .upcoming, align: .end, line: \"عم عائد ماضى\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .upcoming, align: .end, line: \"بضحك وبقول عادى عادى\")\n                        .frame(maxWidth: .infinity)\n                    LyricsLine(state: .upcoming, align: .end, line: \"والميه كله ع الفاضى\")\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity, maxHeight: .infinity)\n                // Progress Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    PlaybackProgress(\n                        elapsedTime: \"00:29\",\n                        totalTime: \"03:48\",\n                        progressIndicator: ProgressIndicator(value: .v10),\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing12)\n                .frame(maxWidth: .infinity)\n                // Controls Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    PlaybackControls()\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing8)\n                .padding(.bottom, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                PlayerUtilityBar(\n                    active: .lyrics,\n                    lyricsLabel: \"LYRICS\",\n                    queueLabel: \"QUEUE\",\n                    audioLabel: \"AUDIO\",\n                    iconLyrics: DS.Icons.lyrics,\n                    iconQueueMusic: DS.Icons.queueMusic,\n                    iconGraphicEq: DS.Icons.settings,\n                    onChange: { index in switch index { case \"Lyrics\": navigate(\"lyrics\"); case \"None\": navigate(\"now-playing\"); default: break } },\n                )\n                    .frame(maxWidth: .infinity)\n            }\n        }\n        .background(DS.Colors.surfaceContainerHigh)\n    }\n}\n",
+   "ranges": {
+    "56:5282": [
+     12,
+     13
+    ],
+    "56:5356": [
+     16,
+     16
+    ],
+    "56:5355": [
+     14,
+     19
+    ],
+    "56:5361": [
+     22,
+     27
+    ],
+    "56:5360": [
+     20,
+     31
+    ],
+    "56:5389": [
+     34,
+     35
+    ],
+    "56:5391": [
+     36,
+     37
+    ],
+    "56:5393": [
+     38,
+     39
+    ],
+    "56:5395": [
+     40,
+     41
+    ],
+    "56:5397": [
+     42,
+     43
+    ],
+    "56:5399": [
+     44,
+     45
+    ],
+    "56:5401": [
+     46,
+     47
+    ],
+    "56:5375": [
+     32,
+     50
+    ],
+    "56:5291": [
+     53,
+     58
+    ],
+    "56:5290": [
+     51,
+     62
+    ],
+    "56:5293": [
+     65,
+     66
+    ],
+    "56:5292": [
+     63,
+     71
+    ],
+    "56:5294": [
+     72,
+     82
+    ],
+    "56:5281": [
+     10,
+     85
+    ]
+   }
+  },
+  "flutter": {
+   "label": "Flutter",
+   "ext": "dart",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Lyrics by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\n\nclass LyricsScreen extends StatelessWidget {\n  const LyricsScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return ColoredBox(color: Theme.of(context).colorScheme.surfaceContainerHigh,\n      child: SingleChildScrollView(\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '12:00')),\n            // Collapse Row\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing8),\n                child: Row(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    IconButton(icon: AppIcons.expandMore),\n                  ],\n                ),\n              ),\n            ),\n            // Lyrics Header Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, bottom: AppSpacing.spacing8),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: LyricsHeader(\n                      image: const AssetImage('assets/figma-img/I56-5361-62-3653.png'),\n                      title: 'كيفك ع فراقى',\n                      subtitle: 'محمد شاكر وفضل شاكر - كيفك ع فراقى',\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Lyrics Section\n            Expanded(\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing24,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: LyricsLine(align: LyricsLineAlign.end, line: 'كذبه وصدقتا')),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.current,\n                      align: LyricsLineAlign.end,\n                      line: 'كانت أكبر كذبه عشته',\n                    )),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.upcoming,\n                      align: LyricsLineAlign.end,\n                      line: 'إنى انساك ومن وقته',\n                    )),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.upcoming,\n                      align: LyricsLineAlign.end,\n                      line: 'ما اقدرت نسيت',\n                    )),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.upcoming,\n                      align: LyricsLineAlign.end,\n                      line: 'عم عائد ماضى',\n                    )),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.upcoming,\n                      align: LyricsLineAlign.end,\n                      line: 'بضحك وبقول عادى عادى',\n                    )),\n                    SizedBox(width: double.infinity, child: LyricsLine(\n                      state: LyricsLineState.upcoming,\n                      align: LyricsLineAlign.end,\n                      line: 'والميه كله ع الفاضى',\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Progress Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing12),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: PlaybackProgress(\n                      elapsedTime: '00:29',\n                      totalTime: '03:48',\n                      progressIndicator: ProgressIndicator(value: ProgressIndicatorValue.v10),\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Controls Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing8, bottom: AppSpacing.spacing16),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: PlaybackControls()),\n                  ],\n                ),\n              ),\n            ),\n            SizedBox(width: double.infinity, child: PlayerUtilityBar(\n              active: PlayerUtilityBarActive.lyrics,\n              lyricsLabel: 'LYRICS',\n              queueLabel: 'QUEUE',\n              audioLabel: 'AUDIO',\n              iconLyrics: AppIcons.lyrics,\n              iconQueueMusic: AppIcons.queueMusic,\n              iconGraphicEq: AppIcons.settings,\n              onChange: (index) { switch (index) { case 'Lyrics': navigate('lyrics'); case 'None': navigate('now-playing'); } },\n            )),\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
+   "ranges": {
+    "56:5282": [
+     18,
+     18
+    ],
+    "56:5356": [
+     25,
+     25
+    ],
+    "56:5355": [
+     19,
+     29
+    ],
+    "56:5361": [
+     36,
+     40
+    ],
+    "56:5360": [
+     30,
+     44
+    ],
+    "56:5389": [
+     52,
+     52
+    ],
+    "56:5391": [
+     53,
+     57
+    ],
+    "56:5393": [
+     58,
+     62
+    ],
+    "56:5395": [
+     63,
+     67
+    ],
+    "56:5397": [
+     68,
+     72
+    ],
+    "56:5399": [
+     73,
+     77
+    ],
+    "56:5401": [
+     78,
+     82
+    ],
+    "56:5375": [
+     45,
+     86
+    ],
+    "56:5291": [
+     93,
+     97
+    ],
+    "56:5290": [
+     87,
+     101
+    ],
+    "56:5293": [
+     108,
+     108
+    ],
+    "56:5292": [
+     102,
+     112
+    ],
+    "56:5294": [
+     113,
+     122
+    ],
+    "56:5281": [
+     13,
+     126
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Lyrics by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { IconButton, LyricsHeader, LyricsLine, PlaybackControls, PlaybackProgress, PlayerUtilityBar, ProgressIndicator, StatusBar } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\n\nexport function LyricsScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <ScrollView style={{ backgroundColor: tokens.color.surfaceContainerHigh }} contentContainerStyle={{ alignItems: 'center' }}>\n      <StatusBar time=\"12:00\" style={{ alignSelf: 'stretch' }} />\n      {/* Collapse Row */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          flexDirection: 'row',\n          alignItems: 'flex-start',\n          paddingHorizontal: tokens.spacing.spacing8,\n        }}\n      >\n        <IconButton icon=\"expand_more\" />\n      </View>\n      {/* Lyrics Header Section */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingBottom: tokens.spacing.spacing8,\n        }}\n      >\n        <LyricsHeader\n          image={require('./assets/figma-img/I56-5361-62-3653.png')}\n          title=\"كيفك ع فراقى\"\n          subtitle=\"محمد شاكر وفضل شاكر - كيفك ع فراقى\"\n        />\n      </View>\n      {/* Lyrics Section */}\n      <View\n        style={{\n          flex: 1,\n          gap: tokens.spacing.spacing24,\n          paddingHorizontal: tokens.spacing.spacing16,\n        }}\n      >\n        <LyricsLine align=\"end\" line=\"كذبه وصدقتا\" />\n        <LyricsLine state=\"current\" align=\"end\" line=\"كانت أكبر كذبه عشته\" />\n        <LyricsLine state=\"upcoming\" align=\"end\" line=\"إنى انساك ومن وقته\" />\n        <LyricsLine state=\"upcoming\" align=\"end\" line=\"ما اقدرت نسيت\" />\n        <LyricsLine state=\"upcoming\" align=\"end\" line=\"عم عائد ماضى\" />\n        <LyricsLine state=\"upcoming\" align=\"end\" line=\"بضحك وبقول عادى عادى\" />\n        <LyricsLine state=\"upcoming\" align=\"end\" line=\"والميه كله ع الفاضى\" />\n      </View>\n      {/* Progress Section */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing12,\n        }}\n      >\n        <PlaybackProgress\n          elapsedTime=\"00:29\"\n          totalTime=\"03:48\"\n          progressIndicator={<ProgressIndicator value=\"v10\" />}\n        />\n      </View>\n      {/* Controls Section */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing8,\n          paddingBottom: tokens.spacing.spacing16,\n        }}\n      >\n        <PlaybackControls />\n      </View>\n      <PlayerUtilityBar\n        active=\"lyrics\"\n        lyricsLabel=\"LYRICS\"\n        queueLabel=\"QUEUE\"\n        audioLabel=\"AUDIO\"\n        iconLyrics=\"lyrics\"\n        iconQueueMusic=\"queue_music\"\n        iconGraphicEq=\"settings\"\n        onChange={(index) => navigate({ 'Lyrics': 'lyrics', 'None': 'now-playing' }[index])}\n        style={{ alignSelf: 'stretch' }}\n      />\n    </ScrollView>\n  );\n}\n",
+   "ranges": {
+    "56:5282": [
+     12,
+     12
+    ],
+    "56:5356": [
+     22,
+     22
+    ],
+    "56:5355": [
+     13,
+     23
+    ],
+    "56:5361": [
+     32,
+     36
+    ],
+    "56:5360": [
+     24,
+     37
+    ],
+    "56:5389": [
+     46,
+     46
+    ],
+    "56:5391": [
+     47,
+     47
+    ],
+    "56:5393": [
+     48,
+     48
+    ],
+    "56:5395": [
+     49,
+     49
+    ],
+    "56:5397": [
+     50,
+     50
+    ],
+    "56:5399": [
+     51,
+     51
+    ],
+    "56:5401": [
+     52,
+     52
+    ],
+    "56:5375": [
+     38,
+     53
+    ],
+    "56:5291": [
+     62,
+     66
+    ],
+    "56:5290": [
+     54,
+     67
+    ],
+    "56:5293": [
+     77,
+     77
+    ],
+    "56:5292": [
+     68,
+     78
+    ],
+    "56:5294": [
+     79,
+     89
+    ],
+    "56:5281": [
+     11,
+     90
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Lyrics by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { LyricsHeader, LyricsLine, StatusBar } from '@ds/components/DataDisplay';\nimport { ProgressIndicator } from '@ds/components/DataDisplayAtoms';\nimport { IconButton, PlaybackControls, PlaybackProgress, PlayerUtilityBar } from '@ds/components/Navigation';\n\nexport function LyricsScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div\n      style={{\n        display: 'flex',\n        flexDirection: 'column',\n        alignItems: 'center',\n        background: 'var(--md-sys-color-surface_container_high)',\n        overflowY: 'auto',\n      }}\n    >\n      <div style={{ alignSelf: 'stretch' }}>\n        <StatusBar Time=\"12:00\" />\n      </div>\n      {/* Collapse Row */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'row',\n          alignItems: 'flex-start',\n          paddingInline: 'var(--md-sys-spacing-8)',\n        }}\n      >\n        <IconButton Icon=\"expand_more\" />\n      </div>\n      {/* Lyrics Header Section */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingBottom: 'var(--md-sys-spacing-8)',\n        }}\n      >\n        <LyricsHeader\n          image=\"figma-img/I56-5361-62-3653.png\"\n          title=\"كيفك ع فراقى\"\n          subtitle=\"محمد شاكر وفضل شاكر - كيفك ع فراقى\"\n        />\n      </div>\n      {/* Lyrics Section */}\n      <div\n        style={{\n          flex: 1,\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-24)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <LyricsLine Align=\"End\" Line=\"كذبه وصدقتا\" />\n        <LyricsLine State=\"Current\" Align=\"End\" Line=\"كانت أكبر كذبه عشته\" />\n        <LyricsLine State=\"Upcoming\" Align=\"End\" Line=\"إنى انساك ومن وقته\" />\n        <LyricsLine State=\"Upcoming\" Align=\"End\" Line=\"ما اقدرت نسيت\" />\n        <LyricsLine State=\"Upcoming\" Align=\"End\" Line=\"عم عائد ماضى\" />\n        <LyricsLine State=\"Upcoming\" Align=\"End\" Line=\"بضحك وبقول عادى عادى\" />\n        <LyricsLine State=\"Upcoming\" Align=\"End\" Line=\"والميه كله ع الفاضى\" />\n      </div>\n      {/* Progress Section */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-12)',\n        }}\n      >\n        <PlaybackProgress\n          {...{ 'Elapsed Time': '00:29', 'Total Time': '03:48', 'Progress Indicator': <ProgressIndicator Value=\"10\" /> }}\n        />\n      </div>\n      {/* Controls Section */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-8)',\n          paddingBottom: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <PlaybackControls />\n      </div>\n      <div style={{ alignSelf: 'stretch' }}>\n        <PlayerUtilityBar\n          Active=\"Lyrics\"\n          onChange={(index) => navigate({ 'Lyrics': 'lyrics', 'None': 'now-playing' }[index])}\n          {...{ 'Lyrics Label': 'LYRICS', 'Queue Label': 'QUEUE', 'Audio Label': 'AUDIO', 'Icon lyrics': 'lyrics', 'Icon queue music': 'queue_music', 'Icon graphic eq': 'settings' }}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "56:5282": [
+     20,
+     22
+    ],
+    "56:5356": [
+     33,
+     33
+    ],
+    "56:5355": [
+     23,
+     34
+    ],
+    "56:5361": [
+     46,
+     50
+    ],
+    "56:5360": [
+     35,
+     51
+    ],
+    "56:5389": [
+     63,
+     63
+    ],
+    "56:5391": [
+     64,
+     64
+    ],
+    "56:5393": [
+     65,
+     65
+    ],
+    "56:5395": [
+     66,
+     66
+    ],
+    "56:5397": [
+     67,
+     67
+    ],
+    "56:5399": [
+     68,
+     68
+    ],
+    "56:5401": [
+     69,
+     69
+    ],
+    "56:5375": [
+     52,
+     70
+    ],
+    "56:5291": [
+     82,
+     84
+    ],
+    "56:5290": [
+     71,
+     85
+    ],
+    "56:5293": [
+     98,
+     98
+    ],
+    "56:5292": [
+     86,
+     99
+    ],
+    "56:5294": [
+     100,
+     106
+    ],
+    "56:5281": [
+     11,
+     107
+    ]
+   }
+  }
+ },
+ "alias_root": {
+  "56:5418": "56:5281"
+ },
+ "check": {
+  "unknown": 0,
+  "raw": 0
+ }
+}
