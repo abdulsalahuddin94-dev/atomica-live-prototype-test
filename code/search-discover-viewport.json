@@ -18,154 +18,154 @@
   "compose": {
    "label": "Jetpack Compose",
    "ext": "kt",
-   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\nimport androidx.compose.ui.res.stringResource\n\n@Composable\nfun SearchDiscoverViewportScreen(navigate: (String) -> Unit) {\n    Column(\n        modifier = Modifier\n            .fillMaxSize()\n            .background(MaterialTheme.colorScheme.surface)\n            .verticalScroll(rememberScrollState()),\n    ) {\n        StatusBar(time = \"11:58\", modifier = Modifier.fillMaxWidth())\n        TopAppBar(\n            title = stringResource(R.string.search_discover),\n            showActions = false,\n            modifier = Modifier.fillMaxWidth(),\n        )\n        // Search Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing8, end = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            SearchBar(\n                placeholder = stringResource(R.string.songs_artists_lyrics_playlists),\n                iconSearch = AppIcons.Search,\n                iconMic = AppIcons.Mic,\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Radar Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing16, end = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            Button(\n                style = ButtonStyle.OutlinedAccent,\n                labelText = stringResource(R.string.radar_songs_around_you),\n                showLeadingIcon = true,\n                leadingIcon = AppIcons.Radar,\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Popular Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing8, end = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            SectionHeader(\n                title = stringResource(R.string.popular),\n                showMore = false,\n                showSupportingText = false,\n                supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                modifier = Modifier.fillMaxWidth(),\n            )\n            // Genre Grid\n            Row(\n                modifier = Modifier.fillMaxWidth(),\n                horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n            ) {\n                GenreCard(\n                    label = stringResource(R.string.top),\n                    image = painterResource(R.drawable.img_i_56_5936_62_3669),\n                )\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.new_music),\n                    image = painterResource(R.drawable.img_i_56_5937_62_3672),\n                )\n            }\n        }\n        // Moods & Genres Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing48, end = AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n        ) {\n            SectionHeader(\n                title = stringResource(R.string.moods_genres),\n                showMore = false,\n                showSupportingText = false,\n                supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                modifier = Modifier.fillMaxWidth(),\n            )\n            // Genre Grid\n            Row(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .horizontalScroll(rememberScrollState()),\n                horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n            ) {\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.alternative),\n                    image = painterResource(R.drawable.img_i_56_5941_62_3672),\n                )\n                GenreCard(\n                    color = GenreCardColor.Cyan,\n                    label = stringResource(R.string.elite),\n                    image = painterResource(R.drawable.img_i_56_5942_62_3675),\n                )\n                GenreCard(\n                    color = GenreCardColor.Green,\n                    label = stringResource(R.string.arabic_hip_hop),\n                    image = painterResource(R.drawable.img_i_56_5943_62_3678),\n                )\n                GenreCard(\n                    color = GenreCardColor.Cyan,\n                    label = stringResource(R.string.arabic_indie),\n                    image = painterResource(R.drawable.img_i_56_5944_62_3675),\n                )\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.chilling),\n                    image = painterResource(R.drawable.img_i_56_5945_62_3672),\n                )\n                GenreCard(\n                    color = GenreCardColor.Red,\n                    label = stringResource(R.string.dance_electronic),\n                    image = painterResource(R.drawable.img_i_56_5946_62_3681),\n                )\n                GenreCard(\n                    label = stringResource(R.string.decades),\n                    image = painterResource(R.drawable.img_i_56_5947_62_3669),\n                )\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.driving),\n                    image = painterResource(R.drawable.img_i_56_5948_62_3672),\n                )\n                GenreCard(\n                    color = GenreCardColor.Yellow,\n                    label = stringResource(R.string.egyptian),\n                    image = painterResource(R.drawable.img_i_56_5949_62_3687),\n                )\n                GenreCard(\n                    color = GenreCardColor.Red,\n                    label = stringResource(R.string.feeling_good),\n                    image = painterResource(R.drawable.img_i_56_5950_62_3681),\n                )\n                GenreCard(\n                    color = GenreCardColor.Purple,\n                    label = stringResource(R.string.focus),\n                    image = painterResource(R.drawable.img_i_56_5951_62_3684),\n                )\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.french),\n                    image = painterResource(R.drawable.img_i_56_5952_62_3672),\n                )\n                GenreCard(\n                    color = GenreCardColor.Green,\n                    label = stringResource(R.string.hip_hop_rap),\n                    image = painterResource(R.drawable.img_i_56_5953_62_3678),\n                )\n                GenreCard(\n                    color = GenreCardColor.Blue,\n                    label = stringResource(R.string.indie),\n                    image = painterResource(R.drawable.img_i_56_5954_62_3672),\n                )\n                GenreCard(\n                    color = GenreCardColor.Green,\n                    label = stringResource(R.string.iraqi),\n                    image = painterResource(R.drawable.img_i_56_5955_62_3678),\n                )\n                GenreCard(\n                    color = GenreCardColor.Purple,\n                    label = stringResource(R.string.islamic),\n                    image = painterResource(R.drawable.img_i_56_5956_62_3684),\n                )\n                GenreCard(\n                    label = stringResource(R.string.k_pop),\n                    image = painterResource(R.drawable.img_i_56_5957_62_3669),\n                )\n                GenreCard(\n                    color = GenreCardColor.Green,\n                    label = stringResource(R.string.khaleeji),\n                    image = painterResource(R.drawable.img_i_56_5958_62_3678),\n                )\n            }\n        }\n        BottomNavigation(\n            firstItem = NavigationItem(label = stringResource(R.string.explore), icon = AppIcons.Explore),\n            secondItem = NavigationItem(\n                selected = true,\n                label = stringResource(R.string.search),\n                icon = AppIcons.Search,\n            ),\n            thirdItem = NavigationItem(label = stringResource(R.string.connect), icon = AppIcons.Groups),\n            fourthItem = NavigationItem(\n                label = stringResource(R.string.your_library),\n                icon = AppIcons.LibraryMusic,\n            ),\n            onChange = { index -> when (index) { 0 -> navigate(\"explore-viewport\"); 1 -> navigate(\"search-discover-viewport\"); 3 -> navigate(\"library-music\") } },\n        )\n        MiniPlayer(\n            image = painterResource(R.drawable.img_i_56_5960_10_451),\n            title = \"ولا بعد سنين\",\n            subtitle = \"اليسا\",\n            onOpen = { navigate(\"now-playing\") },\n        )\n    }\n}\n",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\nimport androidx.compose.ui.res.stringResource\n\n@Composable\nfun SearchDiscoverViewportScreen(navigate: (String) -> Unit) {\n    Scaffold(\n        bottomBar = {\n            Column(horizontalAlignment = Alignment.CenterHorizontally) {\n                MiniPlayer(\n                    image = painterResource(R.drawable.img_i_56_5960_10_451),\n                    title = \"ولا بعد سنين\",\n                    subtitle = \"اليسا\",\n                    onOpen = { navigate(\"now-playing\") },\n                )\n                Spacer(modifier = Modifier.height(AppTheme.spacing.spacing4))\n                BottomNavigation(\n                    firstItem = NavigationItem(\n                        label = stringResource(R.string.explore),\n                        icon = AppIcons.Explore,\n                    ),\n                    secondItem = NavigationItem(\n                        selected = true,\n                        label = stringResource(R.string.search),\n                        icon = AppIcons.Search,\n                    ),\n                    thirdItem = NavigationItem(\n                        label = stringResource(R.string.connect),\n                        icon = AppIcons.Groups,\n                    ),\n                    fourthItem = NavigationItem(\n                        label = stringResource(R.string.your_library),\n                        icon = AppIcons.LibraryMusic,\n                    ),\n                    onChange = { index -> when (index) { 0 -> navigate(\"explore-viewport\"); 1 -> navigate(\"search-discover-viewport\"); 3 -> navigate(\"library-music\") } },\n                )\n            }\n        },\n    ) { innerPadding ->\n        Column(\n            modifier = Modifier\n                .fillMaxSize()\n                .padding(innerPadding)\n                .background(MaterialTheme.colorScheme.surface)\n                .verticalScroll(rememberScrollState()),\n        ) {\n            StatusBar(time = \"11:58\", modifier = Modifier.fillMaxWidth())\n            TopAppBar(\n                title = stringResource(R.string.search_discover),\n                showActions = false,\n                modifier = Modifier.fillMaxWidth(),\n            )\n            // Search Section\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing8, end = AppTheme.spacing.spacing16),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                SearchBar(\n                    placeholder = stringResource(R.string.songs_artists_lyrics_playlists),\n                    iconSearch = AppIcons.Search,\n                    iconMic = AppIcons.Mic,\n                    modifier = Modifier.fillMaxWidth(),\n                )\n            }\n            // Radar Section\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing16, end = AppTheme.spacing.spacing16),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                Button(\n                    style = ButtonStyle.OutlinedAccent,\n                    labelText = stringResource(R.string.radar_songs_around_you),\n                    showLeadingIcon = true,\n                    leadingIcon = AppIcons.Radar,\n                    modifier = Modifier.fillMaxWidth(),\n                )\n            }\n            // Popular Section\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing8, end = AppTheme.spacing.spacing16),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                SectionHeader(\n                    title = stringResource(R.string.popular),\n                    showMore = false,\n                    showSupportingText = false,\n                    supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                    modifier = Modifier.fillMaxWidth(),\n                )\n                // Genre Grid\n                Row(\n                    modifier = Modifier.fillMaxWidth(),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    GenreCard(\n                        label = stringResource(R.string.top),\n                        image = painterResource(R.drawable.img_i_56_5936_62_3669),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.new_music),\n                        image = painterResource(R.drawable.img_i_56_5937_62_3672),\n                    )\n                }\n            }\n            // Moods & Genres Section\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing48, end = AppTheme.spacing.spacing16),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                SectionHeader(\n                    title = stringResource(R.string.moods_genres),\n                    showMore = false,\n                    showSupportingText = false,\n                    supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                    modifier = Modifier.fillMaxWidth(),\n                )\n                // Genre Grid\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState()),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.alternative),\n                        image = painterResource(R.drawable.img_i_56_5941_62_3672),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Cyan,\n                        label = stringResource(R.string.elite),\n                        image = painterResource(R.drawable.img_i_56_5942_62_3675),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Green,\n                        label = stringResource(R.string.arabic_hip_hop),\n                        image = painterResource(R.drawable.img_i_56_5943_62_3678),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Cyan,\n                        label = stringResource(R.string.arabic_indie),\n                        image = painterResource(R.drawable.img_i_56_5944_62_3675),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.chilling),\n                        image = painterResource(R.drawable.img_i_56_5945_62_3672),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Red,\n                        label = stringResource(R.string.dance_electronic),\n                        image = painterResource(R.drawable.img_i_56_5946_62_3681),\n                    )\n                    GenreCard(\n                        label = stringResource(R.string.decades),\n                        image = painterResource(R.drawable.img_i_56_5947_62_3669),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.driving),\n                        image = painterResource(R.drawable.img_i_56_5948_62_3672),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Yellow,\n                        label = stringResource(R.string.egyptian),\n                        image = painterResource(R.drawable.img_i_56_5949_62_3687),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Red,\n                        label = stringResource(R.string.feeling_good),\n                        image = painterResource(R.drawable.img_i_56_5950_62_3681),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Purple,\n                        label = stringResource(R.string.focus),\n                        image = painterResource(R.drawable.img_i_56_5951_62_3684),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.french),\n                        image = painterResource(R.drawable.img_i_56_5952_62_3672),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Green,\n                        label = stringResource(R.string.hip_hop_rap),\n                        image = painterResource(R.drawable.img_i_56_5953_62_3678),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Blue,\n                        label = stringResource(R.string.indie),\n                        image = painterResource(R.drawable.img_i_56_5954_62_3672),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Green,\n                        label = stringResource(R.string.iraqi),\n                        image = painterResource(R.drawable.img_i_56_5955_62_3678),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Purple,\n                        label = stringResource(R.string.islamic),\n                        image = painterResource(R.drawable.img_i_56_5956_62_3684),\n                    )\n                    GenreCard(\n                        label = stringResource(R.string.k_pop),\n                        image = painterResource(R.drawable.img_i_56_5957_62_3669),\n                    )\n                    GenreCard(\n                        color = GenreCardColor.Green,\n                        label = stringResource(R.string.khaleeji),\n                        image = painterResource(R.drawable.img_i_56_5958_62_3678),\n                    )\n                }\n            }\n        }\n    }\n}\n",
    "ranges": {
+    "56:5960": [
+     16,
+     21
+    ],
+    "56:5959": [
+     23,
+     42
+    ],
     "56:5927": [
-     19,
-     19
-    ],
-    "56:5928": [
-     20,
-     24
-    ],
-    "56:5930": [
-     32,
-     37
-    ],
-    "56:5929": [
-     25,
-     38
-    ],
-    "56:5932": [
-     46,
-     52
-    ],
-    "56:5931": [
-     39,
+     53,
      53
     ],
+    "56:5928": [
+     54,
+     58
+    ],
+    "56:5930": [
+     66,
+     71
+    ],
+    "56:5929": [
+     59,
+     72
+    ],
+    "56:5932": [
+     80,
+     86
+    ],
+    "56:5931": [
+     73,
+     87
+    ],
     "56:5934": [
-     61,
-     67
+     95,
+     101
     ],
     "56:5936": [
-     73,
-     76
+     107,
+     110
     ],
     "56:5937": [
-     77,
-     81
+     111,
+     115
     ],
     "56:5935": [
-     68,
-     82
+     102,
+     116
     ],
     "56:5933": [
-     54,
-     83
+     88,
+     117
     ],
     "56:5939": [
-     91,
-     97
+     125,
+     131
     ],
     "56:5941": [
-     105,
-     109
-    ],
-    "56:5942": [
-     110,
-     114
-    ],
-    "56:5943": [
-     115,
-     119
-    ],
-    "56:5944": [
-     120,
-     124
-    ],
-    "56:5945": [
-     125,
-     129
-    ],
-    "56:5946": [
-     130,
-     134
-    ],
-    "56:5947": [
-     135,
-     138
-    ],
-    "56:5948": [
      139,
      143
     ],
-    "56:5949": [
+    "56:5942": [
      144,
      148
     ],
-    "56:5950": [
+    "56:5943": [
      149,
      153
     ],
-    "56:5951": [
+    "56:5944": [
      154,
      158
     ],
-    "56:5952": [
+    "56:5945": [
      159,
      163
     ],
-    "56:5953": [
+    "56:5946": [
      164,
      168
     ],
-    "56:5954": [
+    "56:5947": [
      169,
-     173
+     172
     ],
-    "56:5955": [
-     174,
-     178
+    "56:5948": [
+     173,
+     177
     ],
-    "56:5956": [
-     179,
-     183
+    "56:5949": [
+     178,
+     182
     ],
-    "56:5957": [
-     184,
+    "56:5950": [
+     183,
      187
     ],
-    "56:5958": [
+    "56:5951": [
      188,
      192
     ],
+    "56:5952": [
+     193,
+     197
+    ],
+    "56:5953": [
+     198,
+     202
+    ],
+    "56:5954": [
+     203,
+     207
+    ],
+    "56:5955": [
+     208,
+     212
+    ],
+    "56:5956": [
+     213,
+     217
+    ],
+    "56:5957": [
+     218,
+     221
+    ],
+    "56:5958": [
+     222,
+     226
+    ],
     "56:5940": [
-     98,
-     193
+     132,
+     227
     ],
     "56:5938": [
-     84,
-     194
-    ],
-    "56:5959": [
-     195,
-     208
-    ],
-    "56:5960": [
-     209,
-     214
+     118,
+     228
     ],
     "56:5926": [
      13,
-     215
+     230
     ]
    }
   },
   "swiftui": {
    "label": "SwiftUI",
    "ext": "swift",
-   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct SearchDiscoverViewportScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                StatusBar(time: \"11:58\")\n                    .frame(maxWidth: .infinity)\n                TopAppBar(title: String(localized: \"search_discover\"), showActions: false)\n                    .frame(maxWidth: .infinity)\n                // Search Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SearchBar(\n                        placeholder: String(localized: \"songs_artists_lyrics_playlists\"),\n                        iconSearch: DS.Icons.search,\n                        iconMic: DS.Icons.mic,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Radar Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    Button(\n                        style: .outlinedAccent,\n                        labelText: String(localized: \"radar_songs_around_you\"),\n                        showLeadingIcon: true,\n                        leadingIcon: DS.Icons.radar,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Popular Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SectionHeader(\n                        title: String(localized: \"popular\"),\n                        showMore: false,\n                        showSupportingText: false,\n                        supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                    // Genre Grid\n                    HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                        GenreCard(\n                            label: String(localized: \"top\"),\n                            image: Image(\"I56-5936-62-3669\"),\n                        )\n                        GenreCard(\n                            color: .blue,\n                            label: String(localized: \"new_music\"),\n                            image: Image(\"I56-5937-62-3672\"),\n                        )\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Moods & Genres Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SectionHeader(\n                        title: String(localized: \"moods_genres\"),\n                        showMore: false,\n                        showSupportingText: false,\n                        supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                    // Genre Grid\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"alternative\"),\n                                image: Image(\"I56-5941-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .cyan,\n                                label: String(localized: \"elite\"),\n                                image: Image(\"I56-5942-62-3675\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"arabic_hip_hop\"),\n                                image: Image(\"I56-5943-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .cyan,\n                                label: String(localized: \"arabic_indie\"),\n                                image: Image(\"I56-5944-62-3675\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"chilling\"),\n                                image: Image(\"I56-5945-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .red,\n                                label: String(localized: \"dance_electronic\"),\n                                image: Image(\"I56-5946-62-3681\"),\n                            )\n                            GenreCard(\n                                label: String(localized: \"decades\"),\n                                image: Image(\"I56-5947-62-3669\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"driving\"),\n                                image: Image(\"I56-5948-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .yellow,\n                                label: String(localized: \"egyptian\"),\n                                image: Image(\"I56-5949-62-3687\"),\n                            )\n                            GenreCard(\n                                color: .red,\n                                label: String(localized: \"feeling_good\"),\n                                image: Image(\"I56-5950-62-3681\"),\n                            )\n                            GenreCard(\n                                color: .purple,\n                                label: String(localized: \"focus\"),\n                                image: Image(\"I56-5951-62-3684\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"french\"),\n                                image: Image(\"I56-5952-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"hip_hop_rap\"),\n                                image: Image(\"I56-5953-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"indie\"),\n                                image: Image(\"I56-5954-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"iraqi\"),\n                                image: Image(\"I56-5955-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .purple,\n                                label: String(localized: \"islamic\"),\n                                image: Image(\"I56-5956-62-3684\"),\n                            )\n                            GenreCard(\n                                label: String(localized: \"k_pop\"),\n                                image: Image(\"I56-5957-62-3669\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"khaleeji\"),\n                                image: Image(\"I56-5958-62-3678\"),\n                            )\n                        }\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing48)\n                .frame(maxWidth: .infinity)\n                BottomNavigation(\n                    firstItem: NavigationItem(label: String(localized: \"explore\"), icon: DS.Icons.explore),\n                    secondItem: NavigationItem(\n                        selected: true,\n                        label: String(localized: \"search\"),\n                        icon: DS.Icons.search,\n                    ),\n                    thirdItem: NavigationItem(label: String(localized: \"connect\"), icon: DS.Icons.groups),\n                    fourthItem: NavigationItem(\n                        label: String(localized: \"your_library\"),\n                        icon: DS.Icons.libraryMusic,\n                    ),\n                    onChange: { index in switch index { case 0: navigate(\"explore-viewport\"); case 1: navigate(\"search-discover-viewport\"); case 3: navigate(\"library-music\"); default: break } },\n                )\n                MiniPlayer(\n                    image: Image(\"I56-5960-10-451\"),\n                    title: \"ولا بعد سنين\",\n                    subtitle: \"اليسا\",\n                    onOpen: { navigate(\"now-playing\") },\n                )\n            }\n        }\n        .background(DS.Colors.surface)\n    }\n}\n",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct SearchDiscoverViewportScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                StatusBar(time: \"11:58\")\n                    .frame(maxWidth: .infinity)\n                TopAppBar(title: String(localized: \"search_discover\"), showActions: false)\n                    .frame(maxWidth: .infinity)\n                // Search Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SearchBar(\n                        placeholder: String(localized: \"songs_artists_lyrics_playlists\"),\n                        iconSearch: DS.Icons.search,\n                        iconMic: DS.Icons.mic,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Radar Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    Button(\n                        style: .outlinedAccent,\n                        labelText: String(localized: \"radar_songs_around_you\"),\n                        showLeadingIcon: true,\n                        leadingIcon: DS.Icons.radar,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Popular Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SectionHeader(\n                        title: String(localized: \"popular\"),\n                        showMore: false,\n                        showSupportingText: false,\n                        supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                    // Genre Grid\n                    HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                        GenreCard(\n                            label: String(localized: \"top\"),\n                            image: Image(\"I56-5936-62-3669\"),\n                        )\n                        GenreCard(\n                            color: .blue,\n                            label: String(localized: \"new_music\"),\n                            image: Image(\"I56-5937-62-3672\"),\n                        )\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing8)\n                .frame(maxWidth: .infinity)\n                // Moods & Genres Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    SectionHeader(\n                        title: String(localized: \"moods_genres\"),\n                        showMore: false,\n                        showSupportingText: false,\n                        supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                    // Genre Grid\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"alternative\"),\n                                image: Image(\"I56-5941-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .cyan,\n                                label: String(localized: \"elite\"),\n                                image: Image(\"I56-5942-62-3675\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"arabic_hip_hop\"),\n                                image: Image(\"I56-5943-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .cyan,\n                                label: String(localized: \"arabic_indie\"),\n                                image: Image(\"I56-5944-62-3675\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"chilling\"),\n                                image: Image(\"I56-5945-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .red,\n                                label: String(localized: \"dance_electronic\"),\n                                image: Image(\"I56-5946-62-3681\"),\n                            )\n                            GenreCard(\n                                label: String(localized: \"decades\"),\n                                image: Image(\"I56-5947-62-3669\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"driving\"),\n                                image: Image(\"I56-5948-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .yellow,\n                                label: String(localized: \"egyptian\"),\n                                image: Image(\"I56-5949-62-3687\"),\n                            )\n                            GenreCard(\n                                color: .red,\n                                label: String(localized: \"feeling_good\"),\n                                image: Image(\"I56-5950-62-3681\"),\n                            )\n                            GenreCard(\n                                color: .purple,\n                                label: String(localized: \"focus\"),\n                                image: Image(\"I56-5951-62-3684\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"french\"),\n                                image: Image(\"I56-5952-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"hip_hop_rap\"),\n                                image: Image(\"I56-5953-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .blue,\n                                label: String(localized: \"indie\"),\n                                image: Image(\"I56-5954-62-3672\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"iraqi\"),\n                                image: Image(\"I56-5955-62-3678\"),\n                            )\n                            GenreCard(\n                                color: .purple,\n                                label: String(localized: \"islamic\"),\n                                image: Image(\"I56-5956-62-3684\"),\n                            )\n                            GenreCard(\n                                label: String(localized: \"k_pop\"),\n                                image: Image(\"I56-5957-62-3669\"),\n                            )\n                            GenreCard(\n                                color: .green,\n                                label: String(localized: \"khaleeji\"),\n                                image: Image(\"I56-5958-62-3678\"),\n                            )\n                        }\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing48)\n                .frame(maxWidth: .infinity)\n            }\n        }\n        .background(DS.Colors.surface)\n        .safeAreaInset(edge: .bottom, spacing: 0) {\n            VStack(spacing: 0) {\n                MiniPlayer(\n                    image: Image(\"I56-5960-10-451\"),\n                    title: \"ولا بعد سنين\",\n                    subtitle: \"اليسا\",\n                    onOpen: { navigate(\"now-playing\") },\n                )\n                Spacer().frame(height: DS.Spacing.spacing4)\n                BottomNavigation(\n                    firstItem: NavigationItem(label: String(localized: \"explore\"), icon: DS.Icons.explore),\n                    secondItem: NavigationItem(\n                        selected: true,\n                        label: String(localized: \"search\"),\n                        icon: DS.Icons.search,\n                    ),\n                    thirdItem: NavigationItem(label: String(localized: \"connect\"), icon: DS.Icons.groups),\n                    fourthItem: NavigationItem(\n                        label: String(localized: \"your_library\"),\n                        icon: DS.Icons.libraryMusic,\n                    ),\n                    onChange: { index in switch index { case 0: navigate(\"explore-viewport\"); case 1: navigate(\"search-discover-viewport\"); case 3: navigate(\"library-music\"); default: break } },\n                )\n            }\n        }\n    }\n}\n",
    "ranges": {
     "56:5927": [
      12,
@@ -295,318 +295,24 @@
      67,
      173
     ],
-    "56:5959": [
-     174,
-     187
-    ],
     "56:5960": [
-     188,
-     193
+     179,
+     184
+    ],
+    "56:5959": [
+     186,
+     199
     ],
     "56:5926": [
      10,
-     196
+     201
     ]
    }
   },
   "flutter": {
    "label": "Flutter",
    "ext": "dart",
-   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\nimport 'package:flutter_gen/gen_l10n/app_localizations.dart';\n\nclass SearchDiscoverViewportScreen extends StatelessWidget {\n  const SearchDiscoverViewportScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return ColoredBox(color: Theme.of(context).colorScheme.surface,\n      child: SingleChildScrollView(\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '11:58')),\n            SizedBox(width: double.infinity, child: TopAppBar(title: AppLocalizations.of(context)!.searchDiscover, showActions: false)),\n            // Search Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing8),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SearchBar(\n                      placeholder: AppLocalizations.of(context)!.songsArtistsLyricsPlaylists,\n                      iconSearch: AppIcons.search,\n                      iconMic: AppIcons.mic,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Radar Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: Button(\n                      style: ButtonStyle.outlinedAccent,\n                      labelText: AppLocalizations.of(context)!.radarSongsAroundYou,\n                      showLeadingIcon: true,\n                      leadingIcon: AppIcons.radar,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Popular Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing8),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SectionHeader(\n                      title: AppLocalizations.of(context)!.popular,\n                      showMore: false,\n                      showSupportingText: false,\n                      supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                    )),\n                    // Genre Grid\n                    SizedBox(width: double.infinity,\n                      child: Row(\n                        spacing: AppSpacing.spacing16,\n                        crossAxisAlignment: CrossAxisAlignment.start,\n                        children: [\n                          GenreCard(\n                            label: AppLocalizations.of(context)!.top,\n                            image: const AssetImage('assets/figma-img/I56-5936-62-3669.png'),\n                          ),\n                          GenreCard(\n                            color: GenreCardColor.blue,\n                            label: AppLocalizations.of(context)!.newMusic,\n                            image: const AssetImage('assets/figma-img/I56-5937-62-3672.png'),\n                          ),\n                        ],\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Moods & Genres Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing48),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SectionHeader(\n                      title: AppLocalizations.of(context)!.moodsGenres,\n                      showMore: false,\n                      showSupportingText: false,\n                      supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                    )),\n                    // Genre Grid\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Row(\n                          spacing: AppSpacing.spacing16,\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          mainAxisSize: MainAxisSize.min,\n                          children: [\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.alternative,\n                              image: const AssetImage('assets/figma-img/I56-5941-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.cyan,\n                              label: AppLocalizations.of(context)!.elite,\n                              image: const AssetImage('assets/figma-img/I56-5942-62-3675.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.arabicHipHop,\n                              image: const AssetImage('assets/figma-img/I56-5943-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.cyan,\n                              label: AppLocalizations.of(context)!.arabicIndie,\n                              image: const AssetImage('assets/figma-img/I56-5944-62-3675.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.chilling,\n                              image: const AssetImage('assets/figma-img/I56-5945-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.red,\n                              label: AppLocalizations.of(context)!.danceElectronic,\n                              image: const AssetImage('assets/figma-img/I56-5946-62-3681.png'),\n                            ),\n                            GenreCard(\n                              label: AppLocalizations.of(context)!.decades,\n                              image: const AssetImage('assets/figma-img/I56-5947-62-3669.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.driving,\n                              image: const AssetImage('assets/figma-img/I56-5948-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.yellow,\n                              label: AppLocalizations.of(context)!.egyptian,\n                              image: const AssetImage('assets/figma-img/I56-5949-62-3687.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.red,\n                              label: AppLocalizations.of(context)!.feelingGood,\n                              image: const AssetImage('assets/figma-img/I56-5950-62-3681.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.purple,\n                              label: AppLocalizations.of(context)!.focus,\n                              image: const AssetImage('assets/figma-img/I56-5951-62-3684.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.french,\n                              image: const AssetImage('assets/figma-img/I56-5952-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.hipHopRap,\n                              image: const AssetImage('assets/figma-img/I56-5953-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.indie,\n                              image: const AssetImage('assets/figma-img/I56-5954-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.iraqi,\n                              image: const AssetImage('assets/figma-img/I56-5955-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.purple,\n                              label: AppLocalizations.of(context)!.islamic,\n                              image: const AssetImage('assets/figma-img/I56-5956-62-3684.png'),\n                            ),\n                            GenreCard(\n                              label: AppLocalizations.of(context)!.kPop,\n                              image: const AssetImage('assets/figma-img/I56-5957-62-3669.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.khaleeji,\n                              image: const AssetImage('assets/figma-img/I56-5958-62-3678.png'),\n                            ),\n                          ],\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            BottomNavigation(\n              firstItem: NavigationItem(\n                label: AppLocalizations.of(context)!.explore,\n                icon: AppIcons.explore,\n              ),\n              secondItem: NavigationItem(\n                selected: true,\n                label: AppLocalizations.of(context)!.search,\n                icon: AppIcons.search,\n              ),\n              thirdItem: NavigationItem(\n                label: AppLocalizations.of(context)!.connect,\n                icon: AppIcons.groups,\n              ),\n              fourthItem: NavigationItem(\n                label: AppLocalizations.of(context)!.yourLibrary,\n                icon: AppIcons.libraryMusic,\n              ),\n              onChange: (index) { switch (index) { case 0: navigate('explore-viewport'); case 1: navigate('search-discover-viewport'); case 3: navigate('library-music'); } },\n            ),\n            MiniPlayer(\n              image: const AssetImage('assets/figma-img/I56-5960-10-451.png'),\n              title: 'ولا بعد سنين',\n              subtitle: 'اليسا',\n              onOpen: () => navigate('now-playing'),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
-   "ranges": {
-    "56:5927": [
-     20,
-     20
-    ],
-    "56:5928": [
-     21,
-     21
-    ],
-    "56:5930": [
-     29,
-     33
-    ],
-    "56:5929": [
-     22,
-     37
-    ],
-    "56:5932": [
-     45,
-     50
-    ],
-    "56:5931": [
-     38,
-     54
-    ],
-    "56:5934": [
-     62,
-     67
-    ],
-    "56:5936": [
-     74,
-     77
-    ],
-    "56:5937": [
-     78,
-     82
-    ],
-    "56:5935": [
-     68,
-     85
-    ],
-    "56:5933": [
-     55,
-     89
-    ],
-    "56:5939": [
-     97,
-     102
-    ],
-    "56:5941": [
-     111,
-     115
-    ],
-    "56:5942": [
-     116,
-     120
-    ],
-    "56:5943": [
-     121,
-     125
-    ],
-    "56:5944": [
-     126,
-     130
-    ],
-    "56:5945": [
-     131,
-     135
-    ],
-    "56:5946": [
-     136,
-     140
-    ],
-    "56:5947": [
-     141,
-     144
-    ],
-    "56:5948": [
-     145,
-     149
-    ],
-    "56:5949": [
-     150,
-     154
-    ],
-    "56:5950": [
-     155,
-     159
-    ],
-    "56:5951": [
-     160,
-     164
-    ],
-    "56:5952": [
-     165,
-     169
-    ],
-    "56:5953": [
-     170,
-     174
-    ],
-    "56:5954": [
-     175,
-     179
-    ],
-    "56:5955": [
-     180,
-     184
-    ],
-    "56:5956": [
-     185,
-     189
-    ],
-    "56:5957": [
-     190,
-     193
-    ],
-    "56:5958": [
-     194,
-     198
-    ],
-    "56:5940": [
-     103,
-     202
-    ],
-    "56:5938": [
-     90,
-     206
-    ],
-    "56:5959": [
-     207,
-     226
-    ],
-    "56:5960": [
-     227,
-     232
-    ],
-    "56:5926": [
-     14,
-     236
-    ]
-   }
-  },
-  "react-native": {
-   "label": "React Native",
-   "ext": "tsx",
-   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { BottomNavigation, Button, GenreCard, MiniPlayer, NavigationItem, SearchBar, SectionHeader, StatusBar, TopAppBar } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\nimport { t } from '@/i18n';\n\nexport function SearchDiscoverViewportScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <ScrollView style={{ backgroundColor: tokens.color.surface }} contentContainerStyle={{  }}>\n      <StatusBar time=\"11:58\" />\n      <TopAppBar title={t('search_discover')} showActions={false} />\n      {/* Search Section */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing8,\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing8,\n        }}\n      >\n        <SearchBar\n          placeholder={t('songs_artists_lyrics_playlists')}\n          iconSearch=\"search\"\n          iconMic=\"mic\"\n        />\n      </View>\n      {/* Radar Section */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing8,\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing16,\n        }}\n      >\n        <Button\n          style=\"outlinedAccent\"\n          labelText={t('radar_songs_around_you')}\n          showLeadingIcon\n          leadingIcon=\"radar\"\n        />\n      </View>\n      {/* Popular Section */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing8,\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing8,\n        }}\n      >\n        <SectionHeader\n          title={t('popular')}\n          showMore={false}\n          showSupportingText={false}\n          supportingText={t('discover_music_based_on_your_recent')}\n        />\n        {/* Genre Grid */}\n        <View\n          style={{\n            flexDirection: 'row',\n            gap: tokens.spacing.spacing16,\n            alignItems: 'flex-start',\n          }}\n        >\n          <GenreCard\n            label={t('top')}\n            image={require('./assets/figma-img/I56-5936-62-3669.png')}\n          />\n          <GenreCard\n            color=\"blue\"\n            label={t('new_music')}\n            image={require('./assets/figma-img/I56-5937-62-3672.png')}\n          />\n        </View>\n      </View>\n      {/* Moods & Genres Section */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing8,\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing48,\n        }}\n      >\n        <SectionHeader\n          title={t('moods_genres')}\n          showMore={false}\n          showSupportingText={false}\n          supportingText={t('discover_music_based_on_your_recent')}\n        />\n        {/* Genre Grid */}\n        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start' }}>\n          <GenreCard\n            color=\"blue\"\n            label={t('alternative')}\n            image={require('./assets/figma-img/I56-5941-62-3672.png')}\n          />\n          <GenreCard\n            color=\"cyan\"\n            label={t('elite')}\n            image={require('./assets/figma-img/I56-5942-62-3675.png')}\n          />\n          <GenreCard\n            color=\"green\"\n            label={t('arabic_hip_hop')}\n            image={require('./assets/figma-img/I56-5943-62-3678.png')}\n          />\n          <GenreCard\n            color=\"cyan\"\n            label={t('arabic_indie')}\n            image={require('./assets/figma-img/I56-5944-62-3675.png')}\n          />\n          <GenreCard\n            color=\"blue\"\n            label={t('chilling')}\n            image={require('./assets/figma-img/I56-5945-62-3672.png')}\n          />\n          <GenreCard\n            color=\"red\"\n            label={t('dance_electronic')}\n            image={require('./assets/figma-img/I56-5946-62-3681.png')}\n          />\n          <GenreCard\n            label={t('decades')}\n            image={require('./assets/figma-img/I56-5947-62-3669.png')}\n          />\n          <GenreCard\n            color=\"blue\"\n            label={t('driving')}\n            image={require('./assets/figma-img/I56-5948-62-3672.png')}\n          />\n          <GenreCard\n            color=\"yellow\"\n            label={t('egyptian')}\n            image={require('./assets/figma-img/I56-5949-62-3687.png')}\n          />\n          <GenreCard\n            color=\"red\"\n            label={t('feeling_good')}\n            image={require('./assets/figma-img/I56-5950-62-3681.png')}\n          />\n          <GenreCard\n            color=\"purple\"\n            label={t('focus')}\n            image={require('./assets/figma-img/I56-5951-62-3684.png')}\n          />\n          <GenreCard\n            color=\"blue\"\n            label={t('french')}\n            image={require('./assets/figma-img/I56-5952-62-3672.png')}\n          />\n          <GenreCard\n            color=\"green\"\n            label={t('hip_hop_rap')}\n            image={require('./assets/figma-img/I56-5953-62-3678.png')}\n          />\n          <GenreCard\n            color=\"blue\"\n            label={t('indie')}\n            image={require('./assets/figma-img/I56-5954-62-3672.png')}\n          />\n          <GenreCard\n            color=\"green\"\n            label={t('iraqi')}\n            image={require('./assets/figma-img/I56-5955-62-3678.png')}\n          />\n          <GenreCard\n            color=\"purple\"\n            label={t('islamic')}\n            image={require('./assets/figma-img/I56-5956-62-3684.png')}\n          />\n          <GenreCard\n            label={t('k_pop')}\n            image={require('./assets/figma-img/I56-5957-62-3669.png')}\n          />\n          <GenreCard\n            color=\"green\"\n            label={t('khaleeji')}\n            image={require('./assets/figma-img/I56-5958-62-3678.png')}\n          />\n        </ScrollView>\n      </View>\n      <BottomNavigation\n        firstItem={<NavigationItem label={t('explore')} icon=\"explore\" />}\n        secondItem={<NavigationItem selected label={t('search')} icon=\"search\" />}\n        thirdItem={<NavigationItem label={t('connect')} icon=\"groups\" />}\n        fourthItem={<NavigationItem label={t('your_library')} icon=\"library_music\" />}\n        onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n        style={{ alignSelf: 'flex-start' }}\n      />\n      <MiniPlayer\n        image={require('./assets/figma-img/I56-5960-10-451.png')}\n        title=\"ولا بعد سنين\"\n        subtitle=\"اليسا\"\n        onOpen={() => navigate('now-playing')}\n        style={{ alignSelf: 'flex-start' }}\n      />\n    </ScrollView>\n  );\n}\n",
-   "ranges": {
-    "56:5927": [
-     13,
-     13
-    ],
-    "56:5928": [
-     14,
-     14
-    ],
-    "56:5930": [
-     23,
-     27
-    ],
-    "56:5929": [
-     15,
-     28
-    ],
-    "56:5932": [
-     37,
-     42
-    ],
-    "56:5931": [
-     29,
-     43
-    ],
-    "56:5934": [
-     52,
-     57
-    ],
-    "56:5936": [
-     66,
-     69
-    ],
-    "56:5937": [
-     70,
-     74
-    ],
-    "56:5935": [
-     58,
-     75
-    ],
-    "56:5933": [
-     44,
-     76
-    ],
-    "56:5939": [
-     85,
-     90
-    ],
-    "56:5941": [
-     93,
-     97
-    ],
-    "56:5942": [
-     98,
-     102
-    ],
-    "56:5943": [
-     103,
-     107
-    ],
-    "56:5944": [
-     108,
-     112
-    ],
-    "56:5945": [
-     113,
-     117
-    ],
-    "56:5946": [
-     118,
-     122
-    ],
-    "56:5947": [
-     123,
-     126
-    ],
-    "56:5948": [
-     127,
-     131
-    ],
-    "56:5949": [
-     132,
-     136
-    ],
-    "56:5950": [
-     137,
-     141
-    ],
-    "56:5951": [
-     142,
-     146
-    ],
-    "56:5952": [
-     147,
-     151
-    ],
-    "56:5953": [
-     152,
-     156
-    ],
-    "56:5954": [
-     157,
-     161
-    ],
-    "56:5955": [
-     162,
-     166
-    ],
-    "56:5956": [
-     167,
-     171
-    ],
-    "56:5957": [
-     172,
-     175
-    ],
-    "56:5958": [
-     176,
-     180
-    ],
-    "56:5940": [
-     91,
-     181
-    ],
-    "56:5938": [
-     77,
-     182
-    ],
-    "56:5959": [
-     183,
-     190
-    ],
-    "56:5960": [
-     191,
-     197
-    ],
-    "56:5926": [
-     12,
-     198
-    ]
-   }
-  },
-  "web": {
-   "label": "React (Web)",
-   "ext": "tsx",
-   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { GenreCard, SectionHeader, StatusBar } from '@ds/components/DataDisplay';\nimport { SearchBar } from '@ds/components/FormElements';\nimport { BottomNavigation, Button, MiniPlayer, NavigationItem, TopAppBar } from '@ds/components/Navigation';\nimport { t } from '@/i18n';\n\nexport function SearchDiscoverViewportScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div\n      style={{\n        display: 'flex',\n        flexDirection: 'column',\n        alignItems: 'stretch',\n        background: 'var(--md-sys-color-surface)',\n        overflowY: 'auto',\n      }}\n    >\n      <StatusBar Time=\"11:58\" />\n      <TopAppBar Title={t('search_discover')} {...{ 'Show Actions': false }} />\n      {/* Search Section */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-8)',\n        }}\n      >\n        <SearchBar\n          Placeholder={t('songs_artists_lyrics_playlists')}\n          {...{ 'Icon search': 'search', 'Icon mic': 'mic' }}\n        />\n      </div>\n      {/* Radar Section */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <Button\n          Style=\"Outlined Accent\"\n          {...{ 'Label text': t('radar_songs_around_you'), 'Show Leading Icon': true, 'Leading Icon': 'radar' }}\n        />\n      </div>\n      {/* Popular Section */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-8)',\n        }}\n      >\n        <SectionHeader\n          Title={t('popular')}\n          {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n        />\n        {/* Genre Grid */}\n        <div\n          style={{\n            display: 'flex',\n            flexDirection: 'row',\n            gap: 'var(--md-sys-spacing-16)',\n            alignItems: 'flex-start',\n          }}\n        >\n          <GenreCard Label={t('top')} image=\"figma-img/I56-5936-62-3669.png\" />\n          <GenreCard\n            Color=\"Blue\"\n            Label={t('new_music')}\n            image=\"figma-img/I56-5937-62-3672.png\"\n          />\n        </div>\n      </div>\n      {/* Moods & Genres Section */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-48)',\n        }}\n      >\n        <SectionHeader\n          Title={t('moods_genres')}\n          {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n        />\n        {/* Genre Grid */}\n        <div\n          style={{\n            display: 'flex',\n            flexDirection: 'row',\n            gap: 'var(--md-sys-spacing-16)',\n            alignItems: 'flex-start',\n            overflowX: 'auto',\n          }}\n        >\n          <GenreCard\n            Color=\"Blue\"\n            Label={t('alternative')}\n            image=\"figma-img/I56-5941-62-3672.png\"\n          />\n          <GenreCard Color=\"Cyan\" Label={t('elite')} image=\"figma-img/I56-5942-62-3675.png\" />\n          <GenreCard\n            Color=\"Green\"\n            Label={t('arabic_hip_hop')}\n            image=\"figma-img/I56-5943-62-3678.png\"\n          />\n          <GenreCard\n            Color=\"Cyan\"\n            Label={t('arabic_indie')}\n            image=\"figma-img/I56-5944-62-3675.png\"\n          />\n          <GenreCard\n            Color=\"Blue\"\n            Label={t('chilling')}\n            image=\"figma-img/I56-5945-62-3672.png\"\n          />\n          <GenreCard\n            Color=\"Red\"\n            Label={t('dance_electronic')}\n            image=\"figma-img/I56-5946-62-3681.png\"\n          />\n          <GenreCard Label={t('decades')} image=\"figma-img/I56-5947-62-3669.png\" />\n          <GenreCard Color=\"Blue\" Label={t('driving')} image=\"figma-img/I56-5948-62-3672.png\" />\n          <GenreCard\n            Color=\"Yellow\"\n            Label={t('egyptian')}\n            image=\"figma-img/I56-5949-62-3687.png\"\n          />\n          <GenreCard\n            Color=\"Red\"\n            Label={t('feeling_good')}\n            image=\"figma-img/I56-5950-62-3681.png\"\n          />\n          <GenreCard Color=\"Purple\" Label={t('focus')} image=\"figma-img/I56-5951-62-3684.png\" />\n          <GenreCard Color=\"Blue\" Label={t('french')} image=\"figma-img/I56-5952-62-3672.png\" />\n          <GenreCard\n            Color=\"Green\"\n            Label={t('hip_hop_rap')}\n            image=\"figma-img/I56-5953-62-3678.png\"\n          />\n          <GenreCard Color=\"Blue\" Label={t('indie')} image=\"figma-img/I56-5954-62-3672.png\" />\n          <GenreCard Color=\"Green\" Label={t('iraqi')} image=\"figma-img/I56-5955-62-3678.png\" />\n          <GenreCard\n            Color=\"Purple\"\n            Label={t('islamic')}\n            image=\"figma-img/I56-5956-62-3684.png\"\n          />\n          <GenreCard Label={t('k_pop')} image=\"figma-img/I56-5957-62-3669.png\" />\n          <GenreCard\n            Color=\"Green\"\n            Label={t('khaleeji')}\n            image=\"figma-img/I56-5958-62-3678.png\"\n          />\n        </div>\n      </div>\n      <div style={{ alignSelf: 'flex-start' }}>\n        <BottomNavigation\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n          {...{ 'First Item': <NavigationItem Label={t('explore')} Icon=\"explore\" />, 'Second Item': <NavigationItem Selected Label={t('search')} Icon=\"search\" />, 'Third Item': <NavigationItem Label={t('connect')} Icon=\"groups\" />, 'Fourth Item': <NavigationItem Label={t('your_library')} Icon=\"library_music\" /> }}\n        />\n      </div>\n      <div style={{ alignSelf: 'flex-start' }}>\n        <MiniPlayer\n          image=\"figma-img/I56-5960-10-451.png\"\n          title=\"ولا بعد سنين\"\n          subtitle=\"اليسا\"\n          onOpen={() => navigate('now-playing')}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\nimport 'package:flutter_gen/gen_l10n/app_localizations.dart';\n\nclass SearchDiscoverViewportScreen extends StatelessWidget {\n  const SearchDiscoverViewportScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      backgroundColor: Theme.of(context).colorScheme.surface,\n      body: SingleChildScrollView(\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '11:58')),\n            SizedBox(width: double.infinity, child: TopAppBar(title: AppLocalizations.of(context)!.searchDiscover, showActions: false)),\n            // Search Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing8),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SearchBar(\n                      placeholder: AppLocalizations.of(context)!.songsArtistsLyricsPlaylists,\n                      iconSearch: AppIcons.search,\n                      iconMic: AppIcons.mic,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Radar Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: Button(\n                      style: ButtonStyle.outlinedAccent,\n                      labelText: AppLocalizations.of(context)!.radarSongsAroundYou,\n                      showLeadingIcon: true,\n                      leadingIcon: AppIcons.radar,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Popular Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing8),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SectionHeader(\n                      title: AppLocalizations.of(context)!.popular,\n                      showMore: false,\n                      showSupportingText: false,\n                      supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                    )),\n                    // Genre Grid\n                    SizedBox(width: double.infinity,\n                      child: Row(\n                        spacing: AppSpacing.spacing16,\n                        crossAxisAlignment: CrossAxisAlignment.start,\n                        children: [\n                          GenreCard(\n                            label: AppLocalizations.of(context)!.top,\n                            image: const AssetImage('assets/figma-img/I56-5936-62-3669.png'),\n                          ),\n                          GenreCard(\n                            color: GenreCardColor.blue,\n                            label: AppLocalizations.of(context)!.newMusic,\n                            image: const AssetImage('assets/figma-img/I56-5937-62-3672.png'),\n                          ),\n                        ],\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Moods & Genres Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing48),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: SectionHeader(\n                      title: AppLocalizations.of(context)!.moodsGenres,\n                      showMore: false,\n                      showSupportingText: false,\n                      supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                    )),\n                    // Genre Grid\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Row(\n                          spacing: AppSpacing.spacing16,\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          mainAxisSize: MainAxisSize.min,\n                          children: [\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.alternative,\n                              image: const AssetImage('assets/figma-img/I56-5941-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.cyan,\n                              label: AppLocalizations.of(context)!.elite,\n                              image: const AssetImage('assets/figma-img/I56-5942-62-3675.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.arabicHipHop,\n                              image: const AssetImage('assets/figma-img/I56-5943-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.cyan,\n                              label: AppLocalizations.of(context)!.arabicIndie,\n                              image: const AssetImage('assets/figma-img/I56-5944-62-3675.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.chilling,\n                              image: const AssetImage('assets/figma-img/I56-5945-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.red,\n                              label: AppLocalizations.of(context)!.danceElectronic,\n                              image: const AssetImage('assets/figma-img/I56-5946-62-3681.png'),\n                            ),\n                            GenreCard(\n                              label: AppLocalizations.of(context)!.decades,\n                              image: const AssetImage('assets/figma-img/I56-5947-62-3669.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.driving,\n                              image: const AssetImage('assets/figma-img/I56-5948-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.yellow,\n                              label: AppLocalizations.of(context)!.egyptian,\n                              image: const AssetImage('assets/figma-img/I56-5949-62-3687.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.red,\n                              label: AppLocalizations.of(context)!.feelingGood,\n                              image: const AssetImage('assets/figma-img/I56-5950-62-3681.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.purple,\n                              label: AppLocalizations.of(context)!.focus,\n                              image: const AssetImage('assets/figma-img/I56-5951-62-3684.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.french,\n                              image: const AssetImage('assets/figma-img/I56-5952-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.hipHopRap,\n                              image: const AssetImage('assets/figma-img/I56-5953-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.blue,\n                              label: AppLocalizations.of(context)!.indie,\n                              image: const AssetImage('assets/figma-img/I56-5954-62-3672.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.iraqi,\n                              image: const AssetImage('assets/figma-img/I56-5955-62-3678.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.purple,\n                              label: AppLocalizations.of(context)!.islamic,\n                              image: const AssetImage('assets/figma-img/I56-5956-62-3684.png'),\n                            ),\n                            GenreCard(\n                              label: AppLocalizations.of(context)!.kPop,\n                              image: const AssetImage('assets/figma-img/I56-5957-62-3669.png'),\n                            ),\n                            GenreCard(\n                              color: GenreCardColor.green,\n                              label: AppLocalizations.of(context)!.khaleeji,\n                              image: const AssetImage('assets/figma-img/I56-5958-62-3678.png'),\n                            ),\n                          ],\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n          ],\n        ),\n      ),\n      bottomNavigationBar: Column(\n        mainAxisSize: MainAxisSize.min,\n        children: [\n          MiniPlayer(\n            image: const AssetImage('assets/figma-img/I56-5960-10-451.png'),\n            title: 'ولا بعد سنين',\n            subtitle: 'اليسا',\n            onOpen: () => navigate('now-playing'),\n          ),\n          SizedBox(height: AppSpacing.spacing4),\n          BottomNavigation(\n            firstItem: NavigationItem(label: AppLocalizations.of(context)!.explore, icon: AppIcons.explore),\n            secondItem: NavigationItem(\n              selected: true,\n              label: AppLocalizations.of(context)!.search,\n              icon: AppIcons.search,\n            ),\n            thirdItem: NavigationItem(label: AppLocalizations.of(context)!.connect, icon: AppIcons.groups),\n            fourthItem: NavigationItem(\n              label: AppLocalizations.of(context)!.yourLibrary,\n              icon: AppIcons.libraryMusic,\n            ),\n            onChange: (index) { switch (index) { case 0: navigate('explore-viewport'); case 1: navigate('search-discover-viewport'); case 3: navigate('library-music'); } },\n          ),\n        ],\n      ),\n    );\n  }\n}\n",
    "ranges": {
     "56:5927": [
      21,
@@ -617,44 +323,44 @@
      22
     ],
     "56:5930": [
-     34,
-     37
+     30,
+     34
     ],
     "56:5929": [
      23,
      38
     ],
     "56:5932": [
-     50,
-     53
+     46,
+     51
     ],
     "56:5931": [
      39,
-     54
+     55
     ],
     "56:5934": [
-     66,
-     69
+     63,
+     68
     ],
     "56:5936": [
-     79,
-     79
+     75,
+     78
     ],
     "56:5937": [
-     80,
-     84
+     79,
+     83
     ],
     "56:5935": [
-     70,
-     85
+     69,
+     86
     ],
     "56:5933": [
-     55,
-     86
+     56,
+     90
     ],
     "56:5939": [
      98,
-     101
+     103
     ],
     "56:5941": [
      112,
@@ -662,91 +368,385 @@
     ],
     "56:5942": [
      117,
-     117
+     121
     ],
     "56:5943": [
-     118,
-     122
+     122,
+     126
     ],
     "56:5944": [
-     123,
-     127
+     127,
+     131
     ],
     "56:5945": [
+     132,
+     136
+    ],
+    "56:5946": [
+     137,
+     141
+    ],
+    "56:5947": [
+     142,
+     145
+    ],
+    "56:5948": [
+     146,
+     150
+    ],
+    "56:5949": [
+     151,
+     155
+    ],
+    "56:5950": [
+     156,
+     160
+    ],
+    "56:5951": [
+     161,
+     165
+    ],
+    "56:5952": [
+     166,
+     170
+    ],
+    "56:5953": [
+     171,
+     175
+    ],
+    "56:5954": [
+     176,
+     180
+    ],
+    "56:5955": [
+     181,
+     185
+    ],
+    "56:5956": [
+     186,
+     190
+    ],
+    "56:5957": [
+     191,
+     194
+    ],
+    "56:5958": [
+     195,
+     199
+    ],
+    "56:5940": [
+     104,
+     203
+    ],
+    "56:5938": [
+     91,
+     207
+    ],
+    "56:5960": [
+     214,
+     219
+    ],
+    "56:5959": [
+     221,
+     234
+    ],
+    "56:5926": [
+     14,
+     237
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { BottomNavigation, Button, GenreCard, MiniPlayer, NavigationItem, SearchBar, SectionHeader, StatusBar, TopAppBar } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\nimport { t } from '@/i18n';\n\nexport function SearchDiscoverViewportScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <View style={{ flex: 1, backgroundColor: tokens.color.surface }}>\n      <ScrollView contentContainerStyle={{  }}>\n        <StatusBar time=\"11:58\" />\n        <TopAppBar title={t('search_discover')} showActions={false} />\n        {/* Search Section */}\n        <View\n          style={{\n            gap: tokens.spacing.spacing8,\n            paddingHorizontal: tokens.spacing.spacing16,\n            paddingTop: tokens.spacing.spacing8,\n          }}\n        >\n          <SearchBar\n            placeholder={t('songs_artists_lyrics_playlists')}\n            iconSearch=\"search\"\n            iconMic=\"mic\"\n          />\n        </View>\n        {/* Radar Section */}\n        <View\n          style={{\n            gap: tokens.spacing.spacing8,\n            paddingHorizontal: tokens.spacing.spacing16,\n            paddingTop: tokens.spacing.spacing16,\n          }}\n        >\n          <Button\n            style=\"outlinedAccent\"\n            labelText={t('radar_songs_around_you')}\n            showLeadingIcon\n            leadingIcon=\"radar\"\n          />\n        </View>\n        {/* Popular Section */}\n        <View\n          style={{\n            gap: tokens.spacing.spacing8,\n            paddingHorizontal: tokens.spacing.spacing16,\n            paddingTop: tokens.spacing.spacing8,\n          }}\n        >\n          <SectionHeader\n            title={t('popular')}\n            showMore={false}\n            showSupportingText={false}\n            supportingText={t('discover_music_based_on_your_recent')}\n          />\n          {/* Genre Grid */}\n          <View\n            style={{\n              flexDirection: 'row',\n              gap: tokens.spacing.spacing16,\n              alignItems: 'flex-start',\n            }}\n          >\n            <GenreCard\n              label={t('top')}\n              image={require('./assets/figma-img/I56-5936-62-3669.png')}\n            />\n            <GenreCard\n              color=\"blue\"\n              label={t('new_music')}\n              image={require('./assets/figma-img/I56-5937-62-3672.png')}\n            />\n          </View>\n        </View>\n        {/* Moods & Genres Section */}\n        <View\n          style={{\n            gap: tokens.spacing.spacing8,\n            paddingHorizontal: tokens.spacing.spacing16,\n            paddingTop: tokens.spacing.spacing48,\n          }}\n        >\n          <SectionHeader\n            title={t('moods_genres')}\n            showMore={false}\n            showSupportingText={false}\n            supportingText={t('discover_music_based_on_your_recent')}\n          />\n          {/* Genre Grid */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start' }}>\n            <GenreCard\n              color=\"blue\"\n              label={t('alternative')}\n              image={require('./assets/figma-img/I56-5941-62-3672.png')}\n            />\n            <GenreCard\n              color=\"cyan\"\n              label={t('elite')}\n              image={require('./assets/figma-img/I56-5942-62-3675.png')}\n            />\n            <GenreCard\n              color=\"green\"\n              label={t('arabic_hip_hop')}\n              image={require('./assets/figma-img/I56-5943-62-3678.png')}\n            />\n            <GenreCard\n              color=\"cyan\"\n              label={t('arabic_indie')}\n              image={require('./assets/figma-img/I56-5944-62-3675.png')}\n            />\n            <GenreCard\n              color=\"blue\"\n              label={t('chilling')}\n              image={require('./assets/figma-img/I56-5945-62-3672.png')}\n            />\n            <GenreCard\n              color=\"red\"\n              label={t('dance_electronic')}\n              image={require('./assets/figma-img/I56-5946-62-3681.png')}\n            />\n            <GenreCard\n              label={t('decades')}\n              image={require('./assets/figma-img/I56-5947-62-3669.png')}\n            />\n            <GenreCard\n              color=\"blue\"\n              label={t('driving')}\n              image={require('./assets/figma-img/I56-5948-62-3672.png')}\n            />\n            <GenreCard\n              color=\"yellow\"\n              label={t('egyptian')}\n              image={require('./assets/figma-img/I56-5949-62-3687.png')}\n            />\n            <GenreCard\n              color=\"red\"\n              label={t('feeling_good')}\n              image={require('./assets/figma-img/I56-5950-62-3681.png')}\n            />\n            <GenreCard\n              color=\"purple\"\n              label={t('focus')}\n              image={require('./assets/figma-img/I56-5951-62-3684.png')}\n            />\n            <GenreCard\n              color=\"blue\"\n              label={t('french')}\n              image={require('./assets/figma-img/I56-5952-62-3672.png')}\n            />\n            <GenreCard\n              color=\"green\"\n              label={t('hip_hop_rap')}\n              image={require('./assets/figma-img/I56-5953-62-3678.png')}\n            />\n            <GenreCard\n              color=\"blue\"\n              label={t('indie')}\n              image={require('./assets/figma-img/I56-5954-62-3672.png')}\n            />\n            <GenreCard\n              color=\"green\"\n              label={t('iraqi')}\n              image={require('./assets/figma-img/I56-5955-62-3678.png')}\n            />\n            <GenreCard\n              color=\"purple\"\n              label={t('islamic')}\n              image={require('./assets/figma-img/I56-5956-62-3684.png')}\n            />\n            <GenreCard\n              label={t('k_pop')}\n              image={require('./assets/figma-img/I56-5957-62-3669.png')}\n            />\n            <GenreCard\n              color=\"green\"\n              label={t('khaleeji')}\n              image={require('./assets/figma-img/I56-5958-62-3678.png')}\n            />\n          </ScrollView>\n        </View>\n      </ScrollView>\n      <View style={{ alignItems: 'center' }}>\n        <MiniPlayer\n          image={require('./assets/figma-img/I56-5960-10-451.png')}\n          title=\"ولا بعد سنين\"\n          subtitle=\"اليسا\"\n          onOpen={() => navigate('now-playing')}\n        />\n        <View style={{ height: tokens.spacing.spacing4 }} />\n        <BottomNavigation\n          firstItem={<NavigationItem label={t('explore')} icon=\"explore\" />}\n          secondItem={<NavigationItem selected label={t('search')} icon=\"search\" />}\n          thirdItem={<NavigationItem label={t('connect')} icon=\"groups\" />}\n          fourthItem={<NavigationItem label={t('your_library')} icon=\"library_music\" />}\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n        />\n      </View>\n    </View>\n  );\n}\n",
+   "ranges": {
+    "56:5927": [
+     14,
+     14
+    ],
+    "56:5928": [
+     15,
+     15
+    ],
+    "56:5930": [
+     24,
+     28
+    ],
+    "56:5929": [
+     16,
+     29
+    ],
+    "56:5932": [
+     38,
+     43
+    ],
+    "56:5931": [
+     30,
+     44
+    ],
+    "56:5934": [
+     53,
+     58
+    ],
+    "56:5936": [
+     67,
+     70
+    ],
+    "56:5937": [
+     71,
+     75
+    ],
+    "56:5935": [
+     59,
+     76
+    ],
+    "56:5933": [
+     45,
+     77
+    ],
+    "56:5939": [
+     86,
+     91
+    ],
+    "56:5941": [
+     94,
+     98
+    ],
+    "56:5942": [
+     99,
+     103
+    ],
+    "56:5943": [
+     104,
+     108
+    ],
+    "56:5944": [
+     109,
+     113
+    ],
+    "56:5945": [
+     114,
+     118
+    ],
+    "56:5946": [
+     119,
+     123
+    ],
+    "56:5947": [
+     124,
+     127
+    ],
+    "56:5948": [
      128,
      132
     ],
-    "56:5946": [
+    "56:5949": [
      133,
      137
     ],
-    "56:5947": [
-     138,
-     138
-    ],
-    "56:5948": [
-     139,
-     139
-    ],
-    "56:5949": [
-     140,
-     144
-    ],
     "56:5950": [
-     145,
-     149
+     138,
+     142
     ],
     "56:5951": [
-     150,
-     150
+     143,
+     147
     ],
     "56:5952": [
-     151,
-     151
+     148,
+     152
     ],
     "56:5953": [
-     152,
-     156
-    ],
-    "56:5954": [
-     157,
+     153,
      157
     ],
-    "56:5955": [
+    "56:5954": [
      158,
-     158
+     162
+    ],
+    "56:5955": [
+     163,
+     167
     ],
     "56:5956": [
-     159,
-     163
+     168,
+     172
     ],
     "56:5957": [
-     164,
-     164
+     173,
+     176
     ],
     "56:5958": [
-     165,
-     169
+     177,
+     181
     ],
     "56:5940": [
-     102,
-     170
+     92,
+     182
     ],
     "56:5938": [
-     87,
-     171
-    ],
-    "56:5959": [
-     172,
-     177
+     78,
+     183
     ],
     "56:5960": [
-     178,
-     185
+     186,
+     191
+    ],
+    "56:5959": [
+     193,
+     199
     ],
     "56:5926": [
      12,
-     186
+     201
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Search & Discover - Viewport by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { GenreCard, SectionHeader, StatusBar } from '@ds/components/DataDisplay';\nimport { SearchBar } from '@ds/components/FormElements';\nimport { BottomNavigation, Button, MiniPlayer, NavigationItem, TopAppBar } from '@ds/components/Navigation';\nimport { t } from '@/i18n';\n\nexport function SearchDiscoverViewportScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: 'var(--md-sys-color-surface)' }}>\n      <div style={{ flex: 1, minHeight: 0, overflowY: 'auto' }}>\n        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>\n          <StatusBar Time=\"11:58\" />\n          <TopAppBar Title={t('search_discover')} {...{ 'Show Actions': false }} />\n          {/* Search Section */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingInline: 'var(--md-sys-spacing-16)',\n              paddingTop: 'var(--md-sys-spacing-8)',\n            }}\n          >\n            <SearchBar\n              Placeholder={t('songs_artists_lyrics_playlists')}\n              {...{ 'Icon search': 'search', 'Icon mic': 'mic' }}\n            />\n          </div>\n          {/* Radar Section */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingInline: 'var(--md-sys-spacing-16)',\n              paddingTop: 'var(--md-sys-spacing-16)',\n            }}\n          >\n            <Button\n              Style=\"Outlined Accent\"\n              {...{ 'Label text': t('radar_songs_around_you'), 'Show Leading Icon': true, 'Leading Icon': 'radar' }}\n            />\n          </div>\n          {/* Popular Section */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingInline: 'var(--md-sys-spacing-16)',\n              paddingTop: 'var(--md-sys-spacing-8)',\n            }}\n          >\n            <SectionHeader\n              Title={t('popular')}\n              {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n            />\n            {/* Genre Grid */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n              }}\n            >\n              <GenreCard Label={t('top')} image=\"figma-img/I56-5936-62-3669.png\" />\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('new_music')}\n                image=\"figma-img/I56-5937-62-3672.png\"\n              />\n            </div>\n          </div>\n          {/* Moods & Genres Section */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingInline: 'var(--md-sys-spacing-16)',\n              paddingTop: 'var(--md-sys-spacing-48)',\n            }}\n          >\n            <SectionHeader\n              Title={t('moods_genres')}\n              {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n            />\n            {/* Genre Grid */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                overflowX: 'auto',\n              }}\n            >\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('alternative')}\n                image=\"figma-img/I56-5941-62-3672.png\"\n              />\n              <GenreCard\n                Color=\"Cyan\"\n                Label={t('elite')}\n                image=\"figma-img/I56-5942-62-3675.png\"\n              />\n              <GenreCard\n                Color=\"Green\"\n                Label={t('arabic_hip_hop')}\n                image=\"figma-img/I56-5943-62-3678.png\"\n              />\n              <GenreCard\n                Color=\"Cyan\"\n                Label={t('arabic_indie')}\n                image=\"figma-img/I56-5944-62-3675.png\"\n              />\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('chilling')}\n                image=\"figma-img/I56-5945-62-3672.png\"\n              />\n              <GenreCard\n                Color=\"Red\"\n                Label={t('dance_electronic')}\n                image=\"figma-img/I56-5946-62-3681.png\"\n              />\n              <GenreCard Label={t('decades')} image=\"figma-img/I56-5947-62-3669.png\" />\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('driving')}\n                image=\"figma-img/I56-5948-62-3672.png\"\n              />\n              <GenreCard\n                Color=\"Yellow\"\n                Label={t('egyptian')}\n                image=\"figma-img/I56-5949-62-3687.png\"\n              />\n              <GenreCard\n                Color=\"Red\"\n                Label={t('feeling_good')}\n                image=\"figma-img/I56-5950-62-3681.png\"\n              />\n              <GenreCard\n                Color=\"Purple\"\n                Label={t('focus')}\n                image=\"figma-img/I56-5951-62-3684.png\"\n              />\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('french')}\n                image=\"figma-img/I56-5952-62-3672.png\"\n              />\n              <GenreCard\n                Color=\"Green\"\n                Label={t('hip_hop_rap')}\n                image=\"figma-img/I56-5953-62-3678.png\"\n              />\n              <GenreCard\n                Color=\"Blue\"\n                Label={t('indie')}\n                image=\"figma-img/I56-5954-62-3672.png\"\n              />\n              <GenreCard\n                Color=\"Green\"\n                Label={t('iraqi')}\n                image=\"figma-img/I56-5955-62-3678.png\"\n              />\n              <GenreCard\n                Color=\"Purple\"\n                Label={t('islamic')}\n                image=\"figma-img/I56-5956-62-3684.png\"\n              />\n              <GenreCard Label={t('k_pop')} image=\"figma-img/I56-5957-62-3669.png\" />\n              <GenreCard\n                Color=\"Green\"\n                Label={t('khaleeji')}\n                image=\"figma-img/I56-5958-62-3678.png\"\n              />\n            </div>\n          </div>\n        </div>\n      </div>\n      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>\n        <MiniPlayer\n          image=\"figma-img/I56-5960-10-451.png\"\n          title=\"ولا بعد سنين\"\n          subtitle=\"اليسا\"\n          onOpen={() => navigate('now-playing')}\n        />\n        <div style={{ height: 'var(--md-sys-spacing-4)' }} />\n        <BottomNavigation\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n          {...{ 'First Item': <NavigationItem Label={t('explore')} Icon=\"explore\" />, 'Second Item': <NavigationItem Selected Label={t('search')} Icon=\"search\" />, 'Third Item': <NavigationItem Label={t('connect')} Icon=\"groups\" />, 'Fourth Item': <NavigationItem Label={t('your_library')} Icon=\"library_music\" /> }}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "56:5927": [
+     15,
+     15
+    ],
+    "56:5928": [
+     16,
+     16
+    ],
+    "56:5930": [
+     28,
+     31
+    ],
+    "56:5929": [
+     17,
+     32
+    ],
+    "56:5932": [
+     44,
+     47
+    ],
+    "56:5931": [
+     33,
+     48
+    ],
+    "56:5934": [
+     60,
+     63
+    ],
+    "56:5936": [
+     73,
+     73
+    ],
+    "56:5937": [
+     74,
+     78
+    ],
+    "56:5935": [
+     64,
+     79
+    ],
+    "56:5933": [
+     49,
+     80
+    ],
+    "56:5939": [
+     92,
+     95
+    ],
+    "56:5941": [
+     106,
+     110
+    ],
+    "56:5942": [
+     111,
+     115
+    ],
+    "56:5943": [
+     116,
+     120
+    ],
+    "56:5944": [
+     121,
+     125
+    ],
+    "56:5945": [
+     126,
+     130
+    ],
+    "56:5946": [
+     131,
+     135
+    ],
+    "56:5947": [
+     136,
+     136
+    ],
+    "56:5948": [
+     137,
+     141
+    ],
+    "56:5949": [
+     142,
+     146
+    ],
+    "56:5950": [
+     147,
+     151
+    ],
+    "56:5951": [
+     152,
+     156
+    ],
+    "56:5952": [
+     157,
+     161
+    ],
+    "56:5953": [
+     162,
+     166
+    ],
+    "56:5954": [
+     167,
+     171
+    ],
+    "56:5955": [
+     172,
+     176
+    ],
+    "56:5956": [
+     177,
+     181
+    ],
+    "56:5957": [
+     182,
+     182
+    ],
+    "56:5958": [
+     183,
+     187
+    ],
+    "56:5940": [
+     96,
+     188
+    ],
+    "56:5938": [
+     81,
+     189
+    ],
+    "56:5960": [
+     193,
+     198
+    ],
+    "56:5959": [
+     200,
+     203
+    ],
+    "56:5926": [
+     12,
+     205
     ]
    }
   },
