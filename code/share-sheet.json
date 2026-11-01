@@ -2,8 +2,8 @@
  "screen": "Share Sheet",
  "slug": "share-sheet",
  "figma": {
-  "Dark": "share-sheet-d",
-  "Light": "share-sheet-l"
+  "Dark": "115:4806",
+  "Light": "115:4889"
  },
  "label": "Reference code",
  "order": [
@@ -96,7 +96,7 @@
      19,
      97
     ],
-    "share-sheet-d": [
+    "115:4806": [
      13,
      98
     ]
@@ -183,7 +183,7 @@
      13,
      70
     ],
-    "share-sheet-d": [
+    "115:4806": [
      10,
      72
     ]
@@ -270,7 +270,7 @@
      20,
      129
     ],
-    "share-sheet-d": [
+    "115:4806": [
      14,
      132
     ]
@@ -357,7 +357,7 @@
      14,
      66
     ],
-    "share-sheet-d": [
+    "115:4806": [
      12,
      67
     ]
@@ -444,7 +444,7 @@
      21,
      125
     ],
-    "share-sheet-d": [
+    "115:4806": [
      12,
      126
     ]
@@ -458,7 +458,7 @@
   }
  },
  "alias_root": {
-  "share-sheet-l": "share-sheet-d"
+  "115:4889": "115:4806"
  },
  "check": {
   "unknown": 0,
